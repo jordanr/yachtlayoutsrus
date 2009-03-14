@@ -1,0 +1,28 @@
+<h1>Listing specifications</h1>
+
+<table>
+  <tr>
+    <th>Layout</th>
+    <th>Length</th>
+    <th>Manufacturer</th>
+    <th>Model</th>
+    <th>Year</th>
+  </tr>
+
+<% for specification in @specifications %>
+  <tr>
+    <td><%=h specification.layout_id %></td>
+    <td><%=h specification.length %></td>
+    <td><%=h specification.manufacturer %></td>
+    <td><%=h specification.model %></td>
+    <td><%=h specification.year %></td>
+    <td><%= link_to 'Show', specification %></td>
+    <td><%= link_to 'Edit', edit_specification_path(specification) %></td>
+    <td><%= link_to 'Destroy', specification, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New specification', new_specification_path %>

@@ -1,0 +1,132 @@
+<h1>Editing specification</h1>
+
+<% form_for(@specification) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :layout_id %><br />
+    <%= f.text_field :layout_id %>
+  </p>
+  <p>
+    <%= f.label :manufacturer %><br />
+    <%= f.text_field :manufacturer %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.label :length %><br />
+    <%= f.text_field :length %>
+  </p>
+  <p>
+    <%= f.label :lwl %><br />
+    <%= f.text_field :lwl %>
+  </p>
+  <p>
+    <%= f.label :loa %><br />
+    <%= f.text_field :loa %>
+  </p>
+  <p>
+    <%= f.label :beam %><br />
+    <%= f.text_field :beam %>
+  </p>
+  <p>
+    <%= f.label :min_draft %><br />
+    <%= f.text_field :min_draft %>
+  </p>
+  <p>
+    <%= f.label :max_draft %><br />
+    <%= f.text_field :max_draft %>
+  </p>
+  <p>
+    <%= f.label :bridge_clearance %><br />
+    <%= f.text_field :bridge_clearance %>
+  </p>
+  <p>
+    <%= f.label :displacement %><br />
+    <%= f.text_field :displacement %>
+  </p>
+  <p>
+    <%= f.label :ballast %><br />
+    <%= f.text_field :ballast %>
+  </p>
+  <p>
+    <%= f.label :cruise_speed %><br />
+    <%= f.text_field :cruise_speed %>
+  </p>
+  <p>
+    <%= f.label :max_speed %><br />
+    <%= f.text_field :max_speed %>
+  </p>
+  <p>
+    <%= f.label :hull_material %><br />
+    <%= f.text_field :hull_material %>
+  </p>
+  <p>
+    <%= f.label :designer %><br />
+    <%= f.text_field :designer %>
+  </p>
+  <p>
+    <%= f.label :fuel_tank_capacity %><br />
+    <%= f.text_field :fuel_tank_capacity %>
+  </p>
+  <p>
+    <%= f.label :water_tank_capacity %><br />
+    <%= f.text_field :water_tank_capacity %>
+  </p>
+  <p>
+    <%= f.label :holding_tank_capacity %><br />
+    <%= f.text_field :holding_tank_capacity %>
+  </p>
+  <p>
+    <%= f.label :number_of_fuel_tanks %><br />
+    <%= f.text_field :number_of_fuel_tanks %>
+  </p>
+  <p>
+    <%= f.label :number_of_water_tanks %><br />
+    <%= f.text_field :number_of_water_tanks %>
+  </p>
+  <p>
+    <%= f.label :number_of_holding_tanks %><br />
+    <%= f.text_field :number_of_holding_tanks %>
+  </p>
+  <p>
+    <%= f.label :engine_manufacturer %><br />
+    <%= f.text_field :engine_manufacturer %>
+  </p>
+  <p>
+    <%= f.label :engine_model %><br />
+    <%= f.text_field :engine_model %>
+  </p>
+  <p>
+    <%= f.label :engine_fuel %><br />
+    <%= f.text_field :engine_fuel %>
+  </p>
+  <p>
+    <%= f.label :engine_horsepower %><br />
+    <%= f.text_field :engine_horsepower %>
+  </p>
+  <p>
+    <%= f.label :engine_year %><br />
+    <%= f.text_field :engine_year %>
+  </p>
+  <p>
+    <%= f.label :engine_hours %><br />
+    <%= f.text_field :engine_hours %>
+  </p>
+  <p>
+    <%= f.label :number_of_engines %><br />
+    <%= f.text_field :number_of_engines %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @specification %> |
+<%= link_to 'Back', specifications_path %>
