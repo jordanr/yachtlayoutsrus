@@ -11,6 +11,19 @@
 
 ActiveRecord::Schema.define(:version => 20090314200953) do
 
+  create_table "photos", :force => true do |t|
+    t.integer  "specification_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "content_type"
+    t.string   "filename"
+    t.integer  "parent_id"
+    t.string   "thumbnail"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
+  end
+
   create_table "specifications", :force => true do |t|
     t.integer  "layout_id"
     t.string   "manufacturer"

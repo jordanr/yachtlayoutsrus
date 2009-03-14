@@ -1,6 +1,6 @@
 <p>
-  <b>Layout:</b>
-  <%=h @specification.layout_id %>
+  <b>Length:</b>
+  <%=h @specification.length %>
 </p>
 
 <p>
@@ -16,11 +16,6 @@
 <p>
   <b>Year:</b>
   <%=h @specification.year %>
-</p>
-
-<p>
-  <b>Length:</b>
-  <%=h @specification.length %>
 </p>
 
 <p>
@@ -147,7 +142,3 @@
   <b>Number of engines:</b>
   <%=h @specification.number_of_engines %>
 </p>
-
-
-<%= link_to 'Edit', edit_specification_path(@specification) %> |
-<%= link_to 'Back', specifications_path %>

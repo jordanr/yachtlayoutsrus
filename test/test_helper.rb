@@ -35,4 +35,9 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def set_basic_authentication
+    up = "JordanYachts1:Duckduck1"
+    @request.env["HTTP_AUTHORIZATION"] = "Basic #{Base64.encode64(up)}"
+  end
+ 
 end

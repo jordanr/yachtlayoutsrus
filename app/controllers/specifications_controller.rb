@@ -1,5 +1,5 @@
 class SpecificationsController < ApplicationController
-  before_filter :authenticate, :except=>[:show, :index]
+  before_filter :authenticate, :except=>[:show]
 
   # GET /specifications
   # GET /specifications.xml
@@ -84,11 +84,4 @@ class SpecificationsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  protected
-    def authenticate
-      authenticate_or_request_with_http_basic do |username, password|
-        username == "JordanYachts1" && password == "Duckduck1"
-      end
-    end
 end

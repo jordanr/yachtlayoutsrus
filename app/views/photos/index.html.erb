@@ -1,0 +1,11 @@
+<div id="main_content">
+<% form_tag specification_photo_path(@spec, 0), :method=> :put do -%>
+    <ol id="photo_list">
+      <%= render :partial=> "edit", :collection=>@photos %>
+    </ol>
+<% end  -%>
+</div>
+
+<div id="uploader" style="clear: both">
+<%= render :partial => 'new' %>
+</div>
