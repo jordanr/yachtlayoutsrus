@@ -13,6 +13,8 @@
  <%= submit_to_remote 'search_btn', 'Go', :url => search_path, :update=>"results" %>
 </p>
 </form>
+
+&copy; 2009 <%= link_to "Jordan Yacht & Ship Co.", "http://jordanyachtandship.com" %> 
 </div>
 
 <div id="results"></div>
@@ -23,5 +25,4 @@
       text-align: left;
     }
     li.selected { background-color: #ffb; }
-  </style>
-
+</style>
