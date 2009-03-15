@@ -2,7 +2,6 @@
 
 one:
   id: 1
-  layout_id: 1
   manufacturer: MyString
   model: MyString
   year: 1
@@ -19,22 +18,14 @@ one:
   max_speed: 1
   hull_material: MyString
   designer: MyString
-  fuel_tank_capacity: 1
-  water_tank_capacity: 1
-  holding_tank_capacity: 1
-  number_of_fuel_tanks: 1
-  number_of_water_tanks: 
-  number_of_holding_tanks: 1
   engine_manufacturer: MyString
   engine_model: MyString
   engine_fuel: MyString
   engine_horsepower: 1
   engine_year: 1
-  engine_hours: 1
   number_of_engines: 1
 
 two:
-  layout_id: 1
   manufacturer: MyString
   model: MyString
   year: 1
@@ -51,16 +42,9 @@ two:
   max_speed: 1
   hull_material: MyString
   designer: MyString
-  fuel_tank_capacity: 1
-  water_tank_capacity: 1
-  holding_tank_capacity: 1
-  number_of_fuel_tanks: 1
-  number_of_water_tanks: 
-  number_of_holding_tanks: 1
   engine_manufacturer: MyString
   engine_model: MyString
   engine_fuel: MyString
   engine_horsepower: 1
   engine_year: 1
-  engine_hours: 1
   number_of_engines: 1

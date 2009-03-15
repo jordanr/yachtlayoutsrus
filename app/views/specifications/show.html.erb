@@ -1,10 +1,13 @@
-<div style="text-align: center; margin: 0 auto;">
 <ul>
 <% @photos.each do |photo| %>
 <li style="display: inline"><%= link_to image_tag(photo.public_filename(:thumb)), photo.public_filename %></li>
 <% end %>
-<ul>
+</ul>
 
+<p>
+<b>Description:</b><br/>
+<%=h @specification.description %>
+</p>
 <table>
 <tr><td class="ttl">Basics </td></tr>
 <tr>
@@ -34,6 +37,10 @@
   <td>
   <b>Loa:</b><br/>
   <%=h @specification.loa %>
+  </td>
+  <td>
+  <b>Lod:</b><br/>
+  <%=h @specification.lod %>
   </td>
   <td>
   <b>Beam:</b><br/>
@@ -88,29 +95,18 @@
 <tr><td class="ttl">Tanks </td></tr>
 <tr>
   <td>
-  <b>Fuel tank capacity:</b><br/>
-  <%=h @specification.fuel_tank_capacity %>
+  <b>Fuel tanks:</b><br/>
+  <%=h @specification.fuel_tanks %>
   </td>
   <td>
-  <b>Water tank capacity:</b><br/>
-  <%=h @specification.water_tank_capacity %>
+  <b>Water tanks:</b><br/>
+  <%=h @specification.water_tanks %>
   </td>
   <td>
-  <b>Holding tank capacity:</b><br/>
-  <%=h @specification.holding_tank_capacity %>
+  <b>Holding tanks:</b><br/>
+  <%=h @specification.holding_tanks %>
   </td>
   <td>
-  <b>Number of fuel tanks:</b><br/>
-  <%=h @specification.number_of_fuel_tanks %>
-  </td>
-  <td>
-  <b>Number of water tanks:</b><br/>
-  <%=h @specification.number_of_water_tanks %>
-  </td>
-  <td>
-  <b>Number of holding tanks:</b><br/>
-  <%=h @specification.number_of_holding_tanks %>
-  </td>
 </tr>
 <tr><td class="ttl">Engines</td></tr>
 <tr>
@@ -140,4 +136,3 @@
   </td>
 </tr>
 </table>
-</div>

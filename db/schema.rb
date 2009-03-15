@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090314200953) do
+ActiveRecord::Schema.define(:version => 20090315231647) do
 
   create_table "photos", :force => true do |t|
     t.integer  "specification_id"
@@ -25,38 +25,35 @@ ActiveRecord::Schema.define(:version => 20090314200953) do
   end
 
   create_table "specifications", :force => true do |t|
-    t.integer  "layout_id"
     t.string   "manufacturer"
     t.string   "model"
     t.integer  "year"
     t.integer  "length"
-    t.integer  "lwl"
-    t.integer  "loa"
-    t.integer  "beam"
-    t.integer  "min_draft"
-    t.integer  "max_draft"
-    t.integer  "bridge_clearance"
-    t.integer  "displacement"
-    t.integer  "ballast"
-    t.integer  "cruise_speed"
-    t.integer  "max_speed"
+    t.string   "lwl"
+    t.string   "loa"
+    t.string   "lod"
+    t.string   "beam"
+    t.string   "min_draft"
+    t.string   "max_draft"
+    t.string   "bridge_clearance"
+    t.string   "displacement"
+    t.string   "ballast"
+    t.string   "cruise_speed"
+    t.string   "max_speed"
     t.string   "hull_material"
     t.string   "designer"
-    t.integer  "fuel_tank_capacity"
-    t.integer  "water_tank_capacity"
-    t.integer  "holding_tank_capacity"
-    t.integer  "number_of_fuel_tanks"
-    t.integer  "number_of_water_tanks"
-    t.integer  "number_of_holding_tanks"
+    t.string   "fuel_tanks"
+    t.string   "water_tanks"
+    t.string   "holding_tanks"
     t.string   "engine_manufacturer"
     t.string   "engine_model"
     t.string   "engine_fuel"
-    t.integer  "engine_horsepower"
+    t.string   "engine_horsepower"
     t.integer  "engine_year"
-    t.integer  "engine_hours"
     t.integer  "number_of_engines"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
 end

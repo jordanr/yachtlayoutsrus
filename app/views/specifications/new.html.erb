@@ -3,6 +3,8 @@
 <% form_for(@specification) do |f| %>
   <%= f.error_messages %>
 
+    <%= f.label :description %><br/>
+    <%= f.text_area :description, :size=>"80x5" %>
 <table>
 <tr><td class="ttl">Basics </td></tr>
 <tr>
@@ -31,6 +33,10 @@
   </td>
   <td>
     <%= f.label :loa %><br />
+    <%= f.text_field :loa %>
+  </td>
+  <td>
+    <%= f.label :lod %><br />
     <%= f.text_field :loa %>
   </td>
   <td>
@@ -85,29 +91,17 @@
 </tr>
 <tr><td class="ttl">Tanks </td></tr>
 <tr>
-  <td>
-    <%= f.label :fuel_tank_capacity %><br />
-    <%= f.text_field :fuel_tank_capacity %>
+  <td class="wide">
+    <%= f.label :fuel_tanks %><br />
+    <%= f.text_field :fuel_tanks %>
   </td>
-  <td>
-    <%= f.label :water_tank_capacity %><br />
-    <%= f.text_field :water_tank_capacity %>
+  <td class="wide">
+    <%= f.label :water_tanks %><br />
+    <%= f.text_field :water_tanks %>
   </td>
-  <td>
-    <%= f.label :holding_tank_capacity %><br />
-    <%= f.text_field :holding_tank_capacity %>
-  </td>
-  <td>
-    <%= f.label :number_of_fuel_tanks %><br />
-    <%= f.text_field :number_of_fuel_tanks %>
-  </td>
-  <td>
-    <%= f.label :number_of_water_tanks %><br />
-    <%= f.text_field :number_of_water_tanks %>
-  </td>
-  <td>
-    <%= f.label :number_of_holding_tanks %><br />
-    <%= f.text_field :number_of_holding_tanks %>
+  <td class="wide">
+    <%= f.label :holding_tanks %><br />
+    <%= f.text_field :holding_tanks %>
   </td>
 </tr>
 <tr><td class="ttl">Engines</td></tr>
