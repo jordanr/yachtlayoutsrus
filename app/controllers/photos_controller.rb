@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-#  session :cookie_only => false, :only => :create
+  session :cookie_only => false, :only => :create
   layout 'admin'
  
   before_filter :authenticate, :except=>[:show, :index]
