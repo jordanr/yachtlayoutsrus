@@ -3,8 +3,8 @@
   window.onload = function () {
     swfu = new SWFUpload({
       // Create the custom swfupload_photos_path in the routes.rb file
-      upload_url : '<%= specification_photos_path -%>?_yachtlayoutsrus_session=<%= u session.session_id %>',
-//      upload_url : '<%= specification_photos_path -%>',
+//      upload_url : '<%= specification_photos_path -%>?_yachtlayoutsrus_session=<%= u session.session_id %>',
+      upload_url : '<%= specification_photos_path -%>',
       flash_url : '/assets/swfupload_f9.swf',
 
       file_size_limit : '3072',
