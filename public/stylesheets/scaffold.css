@@ -12,6 +12,20 @@ pre {
   font-size: 11px;
 }
 
+td.ttl {
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 24px;
+}
+
+td input {
+  width: 30px;
+}
+
+td.wide input {
+  width: 100px;
+}
+
 a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }

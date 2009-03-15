@@ -1,7 +1,8 @@
 class PhotosController < ApplicationController
   session :cookie_only => false, :only => :create
+  layout 'admin'
  
-  before_filter :authenticate, :except=>[:show]
+  before_filter :authenticate, :except=>[:show, :index]
   before_filter :get_spec
 
   def index
@@ -10,6 +11,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = @spec.photos.find(params[:id])
+    render :action=>'show', :layout=>'show'
   end
 
   def create

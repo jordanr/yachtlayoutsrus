@@ -22,7 +22,7 @@ class SpecificationsControllerTest < ActionController::TestCase
       post :create, :specification => { }
     end
 
-    assert_redirected_to specification_path(assigns(:specification))
+    assert_redirected_to specifications_path
   end
 
   test "should show specification" do
@@ -37,7 +37,7 @@ class SpecificationsControllerTest < ActionController::TestCase
 
   test "should update specification" do
     put :update, :id => specifications(:one).id, :specification => { }
-    assert_redirected_to specification_path(assigns(:specification))
+    assert_redirected_to specifications_path
   end
 
   test "should destroy specification" do

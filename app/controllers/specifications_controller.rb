@@ -1,5 +1,6 @@
 class SpecificationsController < ApplicationController
-  before_filter :authenticate, :except=>[:show]
+  before_filter :authenticate, :except=>[:show, :index]
+  layout 'admin'
 
   # GET /specifications
   # GET /specifications.xml
@@ -16,9 +17,10 @@ class SpecificationsController < ApplicationController
   # GET /specifications/1.xml
   def show
     @specification = Specification.find(params[:id])
+    @photos = @specification.photos
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :action=>'show', :layout=>'show' }# show.html.erb
       format.xml  { render :xml => @specification }
     end
   end
@@ -47,7 +49,7 @@ class SpecificationsController < ApplicationController
     respond_to do |format|
       if @specification.save
         flash[:notice] = 'Specification was successfully created.'
-        format.html { redirect_to(@specification) }
+        format.html { redirect_to(specifications_path) }
         format.xml  { render :xml => @specification, :status => :created, :location => @specification }
       else
         format.html { render :action => "new" }
@@ -64,7 +66,7 @@ class SpecificationsController < ApplicationController
     respond_to do |format|
       if @specification.update_attributes(params[:specification])
         flash[:notice] = 'Specification was successfully updated.'
-        format.html { redirect_to(@specification) }
+        format.html { redirect_to(specifications_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,7 +82,7 @@ class SpecificationsController < ApplicationController
     @specification.destroy
 
     respond_to do |format|
-      format.html { redirect_to(specifications_url) }
+      format.html { redirect_to(specifications_path) }
       format.xml  { head :ok }
     end
   end
