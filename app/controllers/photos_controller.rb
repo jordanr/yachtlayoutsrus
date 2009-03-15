@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   session :cookie_only => false, :only => :create
   layout 'admin'
  
-  before_filter :authenticate, :except=>[:show, :index]
+  before_filter :authenticate, :except=>[:show, :index, :create]
   before_filter :get_spec
 
   def index
