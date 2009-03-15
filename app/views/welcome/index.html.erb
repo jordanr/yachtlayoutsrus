@@ -1,0 +1,27 @@
+<div style="text-align: center"> 
+
+<p>
+<%=image_tag('ylrus.gif') %>
+</p>
+
+<form>
+<p>
+<label>Search by Manufacturer</label><br/>
+<%= text_field_with_auto_complete :specification, :manufacturer %>
+</p>
+<p> 
+ <%= submit_to_remote 'search_btn', 'Go', :url => search_path, :update=>"results" %>
+</p>
+</form>
+</div>
+
+<div id="results"></div>
+
+
+<style type="text/css">
+    div.auto_complete {
+      text-align: left;
+    }
+    li.selected { background-color: #ffb; }
+  </style>
+
