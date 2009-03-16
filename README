@@ -1,0 +1,188 @@
+= Layouts and Line Drawings
+
+ * http://layoutsandlinedrawings.com
+
+Layouts and Line Drawings (LL) is a online server of yacht specfications, layouts,
+and line drawings.  It provides access through both a traditional web search and
+an XML feed.  Our goals are to:
+
+ * Have a simple, clean design
+ * Be easy to use with ActiveResource
+ * Have a well-designed API for non-Rails clients
+ * Provide useful client implementations for ActiveResource and our API
+ * Be well tested
+
+Here, we will cover:
+ 1. Requirements
+ 2. Server Setup
+ 3. Client Setup
+   a. Using ActiveResource
+   b. Using the XML API
+ 4. License
+
+== REQUIREMENTS:
+
+ * Rails 2.2.0
+ * Attachment_fu
+ * Auto_complete
+
+== SERVER SETUP:
+
+# 1. download
+git clone ... && cd ll
+
+# 2. install plugins
+script/plugin install attachment_fu
+script/plugin install auto_complete
+
+# 3. get some app specfic files
+cd .. && rails dummy
+cp dummy/config/environment.rb ll
+cp dummy/config/database.yml ll
+
+# 4. edit environment to add: 
+# HOST="http://<mysite>.xyz"
+cd ll && nano config/environment.rb
+
+# 5. add a file for basic_auth and add:
+# class MyAuthenticationHelper
+#   def authenticate; end
+# end
+nano app/helpers/my_authentication_helper.rb
+
+# 6. test it
+# rake test
+
+== CLIENT SETUP
+
+LL provides two REST-style ways of interacting with our
+XML feed: using Rails' ActiveResource and using the LL API.
+
+Our REST based service returns two types of objects: specifications
+and photos.  Each comes in two forms: a thumb version when you call
+an :index method and full version when you call a :show method.
+
+The thumb versions are:
+{{{
+Specification
+  id:integer
+  main_photo:string
+  length:integer
+  manufacturer:string
+  model:string
+  year:integer
+
+Photo
+  specification_id:integer
+  id:integer
+  full:string
+  thumb:string
+}}}
+
+The full versions are:
+{{{
+Specification
+    id:integer
+    main_photo:string
+    length:integer
+    manufacturer:string
+    model:string
+    year:integer
+    lwl:string
+    loa:string
+    lod:string
+    beam:string
+    min_draft:string
+    max_draft:string
+    bridge_clearance:string
+    displacement:string
+    ballast:string
+    cruise_speed:string
+    max_speed:string
+    hull_material:string
+    designer:string
+    fuel_tanks:string
+    water_tanks:string
+    holding_tanks:string
+    engine_manufacturer:string
+    engine_model:string
+    engine_fuel:string
+    engine_horsepower:string
+    engine_year:integer
+    number_of_engines:integer
+    created_at:datetime
+    updated_at:datetime
+    description:text
+
+Photo 
+    id:integer
+    specification_id:integer
+    filename:string
+    created_at:datetime
+    updated_at:datetime
+    thumb:string
+    full:string
+}}}
+
+==== ActiveResource
+
+For ActiveResource, you should have the following classes
+
+  * Specification < ActiveResource::Base
+  * Photo < ActiveResource::Base
+
+Then, in standard Rails REST style you can request from our feed.
+You can only GET our :index and :show method.  The routes are:
+ 
+  * /specifications.xml
+  * /specification/:id.xml
+  * /specification/:id/photos.xml
+  * /specification/:id/photo/:id.xml
+
+The Specification class has_many :photos.  See the Rails API 
+documentation of ActiveResource.  And, see our example Rails
+LL client.
+
+==== LL API
+
+For the LL API, all requests should go to the server root:
+  * http://layoutsandlinedrawings.com
+  
+You should send an HTTP request with the parameter:
+  * method - the API method
+
+Here are the methods:
+  * specifications_get() - Return all the specifications
+  * specification_get(spec_id) - Return a specific specifications
+  * specification_photos_get(spec_id) - Return all of a spec's photos
+  * specification_photo_get(spec_id, photo_id) - Return a specific photo
+
+The plural methods return thumb versions.  The specific requests return
+a full version of an identified specification or photo.
+
+Please see our example implementation of the LL API.
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 FIX
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
