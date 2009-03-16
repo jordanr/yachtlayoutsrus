@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
+#  skip_before_filter :verify_authenticity_token
+#  protect_from_forgery :only=>:none
+  
   def index
   end
 

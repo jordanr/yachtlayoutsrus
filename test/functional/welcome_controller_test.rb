@@ -9,7 +9,7 @@ class WelcomeControllerTest < ActionController::TestCase
 
   test "searches" do
     post :search
+    assert assigns(:specs)
     assert_response :success
   end
-
 end

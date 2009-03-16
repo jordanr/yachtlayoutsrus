@@ -1,7 +1,43 @@
-<ul class="specs">
+<div>
+<%= link_to image_tag('ll.gif', :style=>"display: inline"), root_path %>
+<form method="get" action=<%=search_path%> style="display: inline">
+<input id='query' type="text" name="query" size="30">
+
+<% if protect_against_forgery? %>
+<input type="hidden" name="authenticity_token" value="<%= u form_authenticity_token -%>">
+<% end %>
+
+<%= submit_tag 'Search', :id=>'search_button' %>
+</form>
+</div>
+<hr/>
+
+<table class="specs">
+<th></th>
+<th>Length</th>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Year</th>
+
 <% for spec in @specs do -%>
-  <li class="spec">
-    <%= image_tag(spec.main_photo) %>	<%= h spec.length %>	<%=h spec.manufacturer %> 
-  </li>
+  <tr class="spec">
+    <td><%= image_tag(spec.main_photo) %></td>
+    <td><%= h spec.length %></td>
+    <td><%= h spec.manufacturer %></td>
+    <td><%= h spec.year %> </td>
+  </tr>
 <% end -%>
-</ul>
+</table>
+
+<hr/>
+<div style="text-align:center; margin: 0 auto;" >
+<form action=<%=search_path%> method="get">
+<input id='query' type="text" name="query" size="30">
+
+<% if protect_against_forgery? %>
+<input type="hidden" name="authenticity_token" value="<%= u form_authenticity_token -%>">
+<% end %>
+
+<%= submit_tag 'Search', :id=>'search_button' %>
+</form>
+</div>

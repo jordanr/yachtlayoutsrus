@@ -57,10 +57,16 @@ end
 class UnauthenticatedSpecificationsControllerTest < SpecificationsControllerTest
   tests SpecificationsController
 
-  test "should get index" do
+  def setup
+    super
+    @request.env['HTTP_ACCEPT'] = 'application/xml'
+  end
+
+  test "should get index xml" do
     get :index
     assert_response :success
     assert_not_nil assigns(:specifications)
+    assert_equal @response.body, xml_specs_get
   end
 
   test "should not get new" do
@@ -79,6 +85,7 @@ class UnauthenticatedSpecificationsControllerTest < SpecificationsControllerTest
   test "should show specification" do
     get :show, :id => specifications(:one).id
     assert_response :success
+    assert_equal @response.body, xml_spec_get
   end
 
   test "should not get edit" do

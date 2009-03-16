@@ -30,6 +30,10 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+a img {
+  border: 0px;
+}
+
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
@@ -83,10 +87,10 @@ div.auto_complete ul li {
   padding:3px;
 }
 
-/*
 div.auto_complete ul li.selected {
-  background-color: #ffb;
+  background-color: #F8F8F8;
 }
+/*
 div.auto_complete ul strong.highlight {
   color: #800;
   margin:0;

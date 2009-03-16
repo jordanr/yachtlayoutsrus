@@ -1,19 +1,20 @@
 <div style="text-align: center"> 
 
 <p>
-<%=image_tag('ylrus.gif') %>
+<%= link_to image_tag('ll.gif'), root_path %>
 </p>
 
-<form action=<%=search_path%>>
+<form action=<%=search_path%> method="get">
 <input id='query' type="text" name="query" size="60" auto_complete="off">
 <div id="query_auto_complete" class="auto_complete" style="display: none;"></div>
 
 <% if protect_against_forgery? %>
 <%= auto_complete_field 'query', :url => auto_complete_path, :with=> "value + \'&authenticity_token=#{u form_authenticity_token}\'" %>
+<input type="hidden" name="authenticity_token" value="<%= u form_authenticity_token -%>">
 <% end %>
- 
+
 <br/>
-<%= submit_tag 'Search By Manufacturer', :id=>'search_button' %>
+<%= submit_tag 'Search By Manufacturer' %>
 </form>
 <p>
 &copy; 2009 <%= link_to "Jordan Yacht & Ship Co.", "http://jordanyachtandship.com" %> 

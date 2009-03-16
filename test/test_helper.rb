@@ -39,5 +39,64 @@ class Test::Unit::TestCase
     up = "JordanYachts1:Duckduck1"
     @request.env["HTTP_AUTHORIZATION"] = "Basic #{Base64.encode64(up)}"
   end
+
+
+  def xml_specs_get
+    '<?xml version="1.0" encoding="UTF-8"?>
+<specifications type="array">
+  <specification>
+    <id type="integer">1</id>
+    <length type="integer">1</length>
+    <manufacturer>MyString</manufacturer>
+    <model>MyString</model>
+    <year type="integer">1</year>
+  </specification>
+  <specification>
+    <id type="integer">2</id>
+    <length type="integer">1</length>
+    <manufacturer>MyString</manufacturer>
+    <model>MyString</model>
+    <year type="integer">1</year>
+  </specification>
+</specifications>
+'
+  end
+
+  def xml_spec_get
+    '<?xml version="1.0" encoding="UTF-8"?>
+<specification>
+  <ballast>1</ballast>
+  <beam>1</beam>
+  <bridge-clearance>1</bridge-clearance>
+  <created-at type="datetime">2009-03-16T20:45:40Z</created-at>
+  <cruise-speed>1</cruise-speed>
+  <description nil="true"></description>
+  <designer>MyString</designer>
+  <displacement>1</displacement>
+  <engine-fuel>MyString</engine-fuel>
+  <engine-horsepower>1</engine-horsepower>
+  <engine-manufacturer>MyString</engine-manufacturer>
+  <engine-model>MyString</engine-model>
+  <engine-year type="integer">1</engine-year>
+  <fuel-tanks nil="true"></fuel-tanks>
+  <holding-tanks nil="true"></holding-tanks>
+  <hull-material>MyString</hull-material>
+  <id type="integer">1</id>
+  <length type="integer">1</length>
+  <loa>1</loa>
+  <lod nil="true"></lod>
+  <lwl>1</lwl>
+  <manufacturer>MyString</manufacturer>
+  <max-draft>1</max-draft>
+  <max-speed>1</max-speed>
+  <min-draft>1</min-draft>
+  <model>MyString</model>
+  <number-of-engines type="integer">1</number-of-engines>
+  <updated-at type="datetime">2009-03-16T20:45:40Z</updated-at>
+  <water-tanks nil="true"></water-tanks>
+  <year type="integer">1</year>
+</specification>
+'
+  end
  
 end

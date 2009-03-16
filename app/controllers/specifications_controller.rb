@@ -9,7 +9,7 @@ class SpecificationsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @specifications }
+      format.xml  { render :xml => @specifications.to_xml(:thumb=>true) }
     end
   end
 
