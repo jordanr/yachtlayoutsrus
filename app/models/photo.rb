@@ -20,4 +20,16 @@ class Photo < ActiveRecord::Base
     data.content_type = MIME::Types.type_for(data.original_filename)
     self.uploaded_data = data
   end
+
+  def to_xml(options = {})
+    if options.delete(:thumb)
+      options.merge!(:only=> [:id, :specification_id, :manufacturer, :model, :year])
+    else
+      options.merge!(:only=> [:id, :specification_id, :filename, :created_at, :updated_at])
+    end
+    super(options) do |xml|
+      xml.full HOST + public_filename
+      xml.thumb HOST + public_filename(:thumb)
+    end
+  end
 end

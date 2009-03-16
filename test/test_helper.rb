@@ -105,15 +105,15 @@ class Test::Unit::TestCase
 <photos type="array">
   <photo>
     <id type="integer">1</id>
-    <size>full</size>
     <specification-id type="integer">1</specification-id>
-    <uri>'+HOST+'/MyString</uri>
+    <full>'+HOST+'/photos/0000/0001/MyString</full>
+    <thumb>'+HOST+'/photos/0000/0001/MyString_thumb</thumb>
   </photo>
   <photo>
     <id type="integer">2</id>
-    <size>thumb</size>
     <specification-id type="integer">1</specification-id>
-    <uri>'+HOST+'/MyString</uri>
+    <full>'+HOST+'/photos/0000/0001/MyString</full>
+    <thumb>'+HOST+'/photos/0000/0001/MyString_thumb</thumb>
   </photo>
 </photos>
 '
@@ -124,12 +124,11 @@ class Test::Unit::TestCase
 <photo>
   <created-at type="datetime">2009-03-16T21:33:14Z</created-at>
   <filename>MyString</filename>
-  <id type="integer">2</id>
-  <height type="integer">1</height>
-  <size>thumb</size>
+  <id type="integer">1</id>
   <specification-id type="integer">1</specification-id>
-  <uri>'+HOST+'/MyString</uri>
-  <width type="integer">1</width>
+  <updated-at type="datetime">2009-03-16T20:45:40Z</updated-at>
+  <full>'+HOST+'/photos/0000/0001/MyString</full>
+  <thumb>'+HOST+'/photos/0000/0001/MyString_thumb</thumb>
 </photo>
 '
   end

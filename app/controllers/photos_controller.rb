@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @photos } #.to_xml(:thumb=>true) }
+      format.xml  { render :xml => @photos.to_xml(:thumb=>true) }
     end
   end
 
@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
     @photo = @spec.photos.find(params[:id])
     respond_to do |format|
       format.html { render :action=>'show', :layout=>'show' }
-      format.xml  { render :xml => @photo } #.to_xml(:thumb=>true) }
+      format.xml  { render :xml => @photo }
     end
   end
 

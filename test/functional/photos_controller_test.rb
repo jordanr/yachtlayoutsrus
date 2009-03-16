@@ -64,14 +64,14 @@ class UnauthenticatedPhotosControllerTest < PhotosControllerTest
     get :index, :specification_id => 1
     assert_response :success
     assert_not_nil assigns(:photos)
-    print @response.body
+    assert_equal @response.body, xml_photos_get
   end
 
   def test_should_get_show
     get :show, :specification_id => 1, :id => photos(:one).id
     assert_response :success
     assert_not_nil assigns(:photo)
-    print @response.body
+    assert_equal @response.body, xml_photo_get
   end
 
   def test_should_not_create_new
