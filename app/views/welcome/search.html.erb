@@ -1,0 +1,7 @@
+<ul class="specs">
+<% for spec in @specs do -%>
+  <li class="spec">
+    <%= image_tag(spec.main_photo) %>	<%= h spec.length %>	<%=h spec.manufacturer %> 
+  </li>
+<% end -%>
+</ul>

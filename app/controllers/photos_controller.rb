@@ -33,17 +33,4 @@ class PhotosController < ApplicationController
     def get_spec
       @spec = Specification.find(params[:specification_id])
     end
-
-      def dont_verified_request?
-        print !protect_against_forgery?
-        print request.method==:get     
-        print           !verifiable_request_format?   
-        print form_authenticity_token.to_s + "==" + params[request_forgery_protection_token].to_s
-        !protect_against_forgery?     ||
-          request.method == :get      ||
-          !verifiable_request_format? ||
-          form_authenticity_token == params[request_forgery_protection_token]
-        true
-      end
-
 end

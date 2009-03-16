@@ -4,25 +4,18 @@
 <%=image_tag('ylrus.gif') %>
 </p>
 
-<form>
-<p>
-<label>Search by Manufacturer</label><br/>
-<%= text_field_with_auto_complete :specification, :manufacturer %>
-</p>
-<p> 
- <%= submit_to_remote 'search_btn', 'Go', :url => search_path, :update=>"results" %>
-</p>
+<form action=<%=search_path%>>
+<input id='query' type="text" name="query" size="60" auto_complete="off">
+<div id="query_auto_complete" class="auto_complete" style="display: none;"></div>
+
+<% if protect_against_forgery? %>
+<%= auto_complete_field 'query', :url => auto_complete_path, :with=> "value + \'&authenticity_token=#{u form_authenticity_token}\'" %>
+<% end %>
+ 
+<br/>
+<%= submit_tag 'Search By Manufacturer', :id=>'search_button' %>
 </form>
-
+<p>
 &copy; 2009 <%= link_to "Jordan Yacht & Ship Co.", "http://jordanyachtandship.com" %> 
+</p>
 </div>
-
-<div id="results"></div>
-
-
-<style type="text/css">
-    div.auto_complete {
-      text-align: left;
-    }
-    li.selected { background-color: #ffb; }
-</style>
