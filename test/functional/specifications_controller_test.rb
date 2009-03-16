@@ -1,5 +1,9 @@
 require 'test_helper'
 
+class SpecificationsController
+  include AuthenticationTestHelper
+end
+
 class SpecificationsControllerTest < ActionController::TestCase
 end
 

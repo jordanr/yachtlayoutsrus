@@ -11,7 +11,15 @@ class Photo
   end
 end
 
-class AuthenticatedPhotosControllerTest < ActionController::TestCase
+
+class PhotosController
+  include AuthenticationTestHelper
+end
+
+class PhotosControllerTest < ActionController::TestCase
+end
+
+class AuthenticatedPhotosControllerTest < PhotosControllerTest
   tests PhotosController
   def setup
     super
@@ -44,19 +52,26 @@ class AuthenticatedPhotosControllerTest < ActionController::TestCase
   end
 end
 
-class UnauthenticatedPhotosControllerTest < ActionController::TestCase
+class UnauthenticatedPhotosControllerTest < PhotosControllerTest
   tests PhotosController
+
+  def setup
+    super
+    @request.env['HTTP_ACCEPT'] = 'application/xml'
+  end
 
   def test_should_get_index
     get :index, :specification_id => 1
     assert_response :success
     assert_not_nil assigns(:photos)
+    print @response.body
   end
 
   def test_should_get_show
     get :show, :specification_id => 1, :id => photos(:one).id
     assert_response :success
     assert_not_nil assigns(:photo)
+    print @response.body
   end
 
   def test_should_not_create_new

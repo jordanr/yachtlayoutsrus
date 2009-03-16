@@ -7,11 +7,19 @@ class PhotosController < ApplicationController
 
   def index
     @photos = @spec.photos
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @photos } #.to_xml(:thumb=>true) }
+    end
   end
 
   def show
     @photo = @spec.photos.find(params[:id])
-    render :action=>'show', :layout=>'show'
+    respond_to do |format|
+      format.html { render :action=>'show', :layout=>'show' }
+      format.xml  { render :xml => @photo } #.to_xml(:thumb=>true) }
+    end
   end
 
   def create

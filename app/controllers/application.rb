@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include MyAuthenticationHelper
   helper :all # include all helpers, all the time
   layout 'application'
 
@@ -14,10 +15,4 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
 
-  protected
-    def authenticate
-      authenticate_or_request_with_http_basic do |username, password|
-        username == "JordanYachts1" && password == "Duckduck1"
-      end
-    end
 end

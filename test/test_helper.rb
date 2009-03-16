@@ -36,7 +36,7 @@ class Test::Unit::TestCase
 
   # Add more helper methods to be used by all tests here...
   def set_basic_authentication
-    up = "JordanYachts1:Duckduck1"
+    up = "test:test"
     @request.env["HTTP_AUTHORIZATION"] = "Basic #{Base64.encode64(up)}"
   end
 
@@ -98,5 +98,55 @@ class Test::Unit::TestCase
 </specification>
 '
   end
+
+
+  def xml_photos_get
+    '<?xml version="1.0" encoding="UTF-8"?>
+<photos type="array">
+  <photo>
+    <id type="integer">1</id>
+    <size>full</size>
+    <specification-id type="integer">1</specification-id>
+    <uri>'+HOST+'/MyString</uri>
+  </photo>
+  <photo>
+    <id type="integer">2</id>
+    <size>thumb</size>
+    <specification-id type="integer">1</specification-id>
+    <uri>'+HOST+'/MyString</uri>
+  </photo>
+</photos>
+'
+  end
  
+  def xml_photo_get
+    '<?xml version="1.0" encoding="UTF-8"?>
+<photo>
+  <created-at type="datetime">2009-03-16T21:33:14Z</created-at>
+  <filename>MyString</filename>
+  <id type="integer">2</id>
+  <height type="integer">1</height>
+  <size>thumb</size>
+  <specification-id type="integer">1</specification-id>
+  <uri>'+HOST+'/MyString</uri>
+  <width type="integer">1</width>
+</photo>
+'
+  end
+
 end
+
+module AuthenticationTestHelper
+#  def self.included(klass)
+#    klass.extend ClassMethods
+#  end
+
+#  module ClassMethods
+    def authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username == "test" && password == "test"
+      end
+    end
+#  end
+end
+
