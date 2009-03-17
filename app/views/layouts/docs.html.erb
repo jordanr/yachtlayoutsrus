@@ -13,9 +13,14 @@
   <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
+<div>
+<%= link_to image_tag('ll_thumb.gif'), root_path %>
+<h1 style="display: inline"> <%=  controller.action_name %> </h1>
+</div>
+<hr/>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<div style="text-align: center; margin: auto;">
 <%= yield  %>
-
+</div>
 </body>
 </html>

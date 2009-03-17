@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
 #  skip_before_filter :verify_authenticity_token
 #  protect_from_forgery :only=>:none
+
+  layout 'docs', :only=>[:about, :advertising, :developers]
   
   def index
     respond_to do |format|
@@ -27,7 +29,20 @@ class WelcomeController < ApplicationController
      @specs = Specification.find_by_sql(["SELECT * FROM specifications WHERE manufacturer = ? ORDER BY length DESC", params[:query]])
   end
 
+  #####################3
+  # Docs
+  ####################
+  def about
+  end
+  def advertising
+  end
+  def developers
+  end
+
+
+  ##################
   # ajax
+  #################
   def auto_complete
     @queries = Specification.find_by_sql(["SELECT DISTINCT manufacturer FROM specifications WHERE LOWER(manufacturer) LIKE ?", '%' + params[:query] + '%'])
     render :partial=>"queries"
