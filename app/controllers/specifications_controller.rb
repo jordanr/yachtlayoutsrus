@@ -6,7 +6,6 @@ class SpecificationsController < ApplicationController
   # GET /specifications.xml
   def index
     @specifications = Specification.find(:all)
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @specifications.to_xml(:thumb=>true) }

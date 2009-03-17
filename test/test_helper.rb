@@ -50,6 +50,7 @@ class Test::Unit::TestCase
     <manufacturer>MyString</manufacturer>
     <model>MyString</model>
     <year type="integer">1</year>
+    <thumb>'+HOST+'/photos/0000/0001/MyString_thumb</thumb>
   </specification>
   <specification>
     <id type="integer">2</id>
@@ -57,6 +58,7 @@ class Test::Unit::TestCase
     <manufacturer>MyString</manufacturer>
     <model>MyString</model>
     <year type="integer">1</year>
+    <thumb>'+HOST+'/images/main_silhouette.gif</thumb>
   </specification>
 </specifications>
 '
@@ -95,6 +97,7 @@ class Test::Unit::TestCase
   <updated-at type="datetime">2009-03-16T20:45:40Z</updated-at>
   <water-tanks nil="true"></water-tanks>
   <year type="integer">1</year>
+  <full>'+HOST+'/photos/0000/0001/MyString</full>
 </specification>
 '
   end
