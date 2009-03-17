@@ -66,7 +66,7 @@ The thumb versions are:
 {{{
 Specification
   id:integer
-  main_photo:string
+  thumb:string
   length:integer
   manufacturer:string
   model:string
@@ -83,7 +83,7 @@ The full versions are:
 {{{
 Specification
     id:integer
-    main_photo:string
+    full:string
     length:integer
     manufacturer:string
     model:string

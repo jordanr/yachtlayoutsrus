@@ -18,7 +18,7 @@
 
 <% for spec in @specs do -%>
   <tr class="spec">
-    <td><%= link_to image_tag(spec.main_photo), specification_path(spec) %></td>
+    <td><%= link_to image_tag(spec.main_photo(:thumb)), specification_path(spec) %></td>
     <td><%= h spec.length %></td>
     <td><%= h spec.manufacturer %></td>
     <td><%= h spec.year %> </td>
