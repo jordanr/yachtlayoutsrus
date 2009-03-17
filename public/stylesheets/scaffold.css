@@ -1,3 +1,11 @@
+.goldstrip {
+  border-top: 1px solid black;
+  background: url("/images/goldstrip.jpg");
+  height: 56px;
+  background-repeat: repeat;
+}
+
+/*
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
@@ -11,6 +19,7 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
+*/
 
 td.ttl {
   margin-top: 10px;

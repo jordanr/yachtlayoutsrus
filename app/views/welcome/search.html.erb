@@ -1,5 +1,5 @@
 <div>
-<%= link_to image_tag('ll_thumb.gif', :style=>"display: inline"), root_path %>
+<%= link_to image_tag('ll_thumb.gif'), root_path %>
 <form method="get" action=<%=search_path%> style="display: inline">
 <input id='query' type="text" name="query" size="30">
 
@@ -9,31 +9,23 @@
 <hr/>
 
 <% if @specs.length != 0  %>
-<table class="specs">
-<th></th>
-<th>Length</th>
-<th>Manufacturer</th>
-<th>Model</th>
-<th>Year</th>
 
-<% for spec in @specs do -%>
-  <tr class="spec">
-    <td><%= link_to image_tag(spec.main_photo(:thumb)), specification_path(spec) %></td>
-    <td><%= h spec.length %></td>
-    <td><%= h spec.manufacturer %></td>
-    <td><%= h spec.year %> </td>
+<table width="100%">
+<% @specs.each_slice(6) do |sub_specs| -%>
+  <tr>
+  <% sub_specs.each do |spec| -%>
+    <td valign="bottom" width="16%">
+      <%= link_to image_tag(spec.main_photo(:thumb)), specification_path(spec) %><br/>
+      <%= h("#{spec.length} #{spec.manufacturer} #{spec.model} #{spec.year}") %>
+    </td>
+  <% end -%>
   </tr>
 <% end -%>
 </table>
 
-<hr/>
-<div style="text-align:center; margin: 0 auto;" >
+<div class="goldstrip" style="clear: both; text-align:center; margin: 0 auto;" ><br/>
 <form action=<%=search_path%> method="get">
 <input id='query' type="text" name="query" size="30">
-
-<% if protect_against_forgery? %>
-<input type="hidden" name="authenticity_token" value="<%= u form_authenticity_token -%>">
-<% end %>
 
 <%= submit_tag 'Search', :id=>'search_button' %>
 </form>

@@ -5,13 +5,18 @@
 </p>
 
 <form action=<%=search_path%> method="get">
-<input id='query' type="text" name="query" size="60" auto_complete="off">
+<input id='query' type="text" name="query" size="40" auto_complete="off">
 <div id="query_auto_complete" class="auto_complete" style="display: none;"></div>
 <%= auto_complete_field 'query', :url => auto_complete_path, :method=>:get %>
-
-<br/>
-<%= submit_tag 'Search By Manufacturer' %>
+<%= submit_tag 'Search' %>
 </form>
+
+<p>
+<%= link_to "About", about_path %> 
+<%= link_to "Advertising", advertising_path %> 
+<%= link_to "Developers", developers_path %> 
+</p>
+
 <p>
 &copy; 2009 <%= link_to "Jordan Yacht & Ship Co.", "http://jordanyachtandship.com" %> 
 </p>

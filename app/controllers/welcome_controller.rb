@@ -24,7 +24,7 @@ class WelcomeController < ApplicationController
 
   def search
      spec = params[:specification]
-     @specs = Specification.find_by_sql(["SELECT * FROM specifications WHERE manufacturer = ?", params[:query]])
+     @specs = Specification.find_by_sql(["SELECT * FROM specifications WHERE manufacturer = ? ORDER BY length DESC", params[:query]])
   end
 
   # ajax
