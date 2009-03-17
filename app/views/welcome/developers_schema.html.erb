@@ -12,13 +12,10 @@ and line drawings.  We return two objects: Specification, Photo.  Each comes in 
 
 <h3>Schema</h3>
 <p>
-
-The objects have the following versions.
-
 The limited versions are:
 <div class="code">
 <div class="left">
-Specification
+<b>Specification</b>
   id:integer
   thumb:string
   length:integer
@@ -26,8 +23,9 @@ Specification
   model:string
   year:integer
 </div>
+<br/>
 <div class="right">
-Photo
+<b>Photo</b>
   specification_id:integer
   id:integer
   full:string
@@ -36,11 +34,11 @@ Photo
 </div>
 </p>
 
-<p style="clear: both;">
+<p>
 The complete versions are:
 <div class="code">
 <div class="left">
-Specification
+<b>Specification</b>
     id:integer
     full:string
     length:integer
@@ -73,9 +71,9 @@ Specification
     updated_at:datetime
     description:text
 </div>
-
+<br/>
 <div class="right">
-Photo 
+<b>Photo</b>
     id:integer
     specification_id:integer
     filename:string

@@ -1,7 +1,7 @@
 <div style="text-align: left">
 
 <p>
-Our XML Feed provides layouts and linedrawings through a protocol called the LL API.
+Our XML feed provides layouts and lined drawings through a protocol called the LL API.
 </p>
 
 <h3> LL API </h3>
@@ -15,14 +15,15 @@ You should send an HTTP request with the parameter:
 Here are the methods:
 <ul>
 <li>specifications_get() - Return all the specifications</li>
-<li>specification_get(spec_id) - Return a specific specification</li>
-<li>specification_photos_get(spec_id) - Return all of a spec's photo</li>
-<li>specification_photo_get(spec_id, photo_id) - Return a specific photo</li>
+<li>specification_get(specification_id) - Return a specific specification</li>
+<li>specification_photos_get(specification_id) - Return all of a spec's photo</li>
+<li>specification_photo_get(specification_id, photo_id) - Return a specific photo</li>
 </ul>
 
 The plural methods return limited versions (see General Use above).   
 The specific requests return a complete version of an identified 
-specification or photo.
+specification or photo.  The arguments "specification_id" and "id" should
+be passed along with the "method" as parameters in the HTTP request.
 </p>
 
 <p>
