@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Layouts and Line Drawings</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'swfupload' %>
+  <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+<div>
+<%= link_to image_tag('ll_thumb.gif'), root_path %>
+<h1 style="display: inline"> developers </h1>
+<ul id="nav">
+<li><%= link_to 'Home', developers_path %></li>
+<li><%= link_to 'Schema', developers_schema_path %></li>
+<li><%= link_to 'API', developers_api_path %></li>
+<li><%= link_to 'Rails', developers_rails_path %></li>
+</ul>
+</div>
+<hr/>
+
+<div style="text-align: center; margin: auto;">
+<%= yield  %>
+</div>
+</body>
+</html>

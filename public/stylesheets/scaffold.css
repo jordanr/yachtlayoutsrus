@@ -1,3 +1,21 @@
+#nav li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;  
+}  
+
+.licence {
+  width: 600px;
+  height: 300px;
+}
+
+.code .left {
+  width: 50px;
+}
+.code .right {
+  width: 50px;
+}
+
 .goldstrip {
   border-top: 1px solid black;
   background: url("/images/goldstrip.jpg");

@@ -1,0 +1,32 @@
+<div style="text-align: left">
+
+Layouts and Line Drawings uses Ruby on Rails.  As well, our Feed is
+most easily used with Rails.
+
+<h3>ActiveResource</h3>
+<p>
+For ActiveResource, you should have the following classes:
+
+<ul>
+<li>Specification < ActiveResource::Base</li>
+<li>Photo < ActiveResource::Base</li>
+</ul>
+Set their self.site to equal 'http://layoutsandlinedrawings.com'.
+</p>
+
+<p>
+Then, in standard Rails REST style you can request from our feed.
+You can only GET our :index and :show method.  The routes are:
+ 
+<ul>
+<li>/specifications.xml</li>
+<li>/specification/:id.xml</li>
+<li>/specification/:id/photos.xml</li>
+<li>/specification/:id/photo/:id.xml</li>
+</ul>
+
+The Specification class has_many :photos.  See the Rails API
+documentation of ActiveResource.  And, see our example Rails client.
+</p>
+
+</div>

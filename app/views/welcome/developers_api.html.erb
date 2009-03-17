@@ -1,0 +1,32 @@
+<div style="text-align: left">
+
+<p>
+Our XML Feed provides layouts and linedrawings through a protocol called the LL API.
+</p>
+
+<h3> LL API </h3>
+<p>
+For the LL API, all requests should go to the server root:
+  <ul><li> http://layoutsandlinedrawings.com</li></ul>
+  
+You should send an HTTP request with the parameter:
+  <ul><li> method - the API method</li></ul>
+
+Here are the methods:
+<ul>
+<li>specifications_get() - Return all the specifications</li>
+<li>specification_get(spec_id) - Return a specific specification</li>
+<li>specification_photos_get(spec_id) - Return all of a spec's photo</li>
+<li>specification_photo_get(spec_id, photo_id) - Return a specific photo</li>
+</ul>
+
+The plural methods return limited versions (see General Use above).   
+The specific requests return a complete version of an identified 
+specification or photo.
+</p>
+
+<p>
+Please see our example implementation of the LL API.
+</p>
+
+</div>
