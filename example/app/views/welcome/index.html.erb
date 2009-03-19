@@ -1,2 +1,9 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<%= select_tag 'specification', "<option value='0'></option>#{options_from_collection_for_select(@specs, 'id', 'to_s')}", :id=>'specification_id' %>
+<%= observe_field("specification_id", :url=>show_spec_path, :update=>'spec', :with=>'specification_id') %>
+
+<div id='spec'>
+</div>
+
