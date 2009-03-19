@@ -1,4 +1,4 @@
 <li id="edit_photo_<%= edit.id %>" style="text-align: left; float: left">
-    <%= image_tag edit.public_filename(:thumb)  %>
+    <%= link_to image_tag(edit.public_filename(:thumb)), edit.public_filename  %>
     <label style="float: left"><%= link_to_remote "Destroy", :url=>specification_photo_path(edit.specification.id, edit.id), :method=>:delete, :confirm=>"Are you sure?", :href=>specification_photo_path(edit.specification.id, edit.id), :success=>"$('photo_list').removeChild($('edit_photo_#{edit.id}'))" %></label>
 </li>

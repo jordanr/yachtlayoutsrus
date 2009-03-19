@@ -5,7 +5,7 @@ class SpecificationsController < ApplicationController
   # GET /specifications
   # GET /specifications.xml
   def index
-    @specifications = Specification.find(:all)
+    @specifications = Specification.find_by_sql(["SELECT * FROM specifications ORDER BY manufacturer, length DESC"])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @specifications.to_xml(:thumb=>true) }
