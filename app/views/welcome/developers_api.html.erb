@@ -27,7 +27,13 @@ be passed along with the "method" as parameters in the HTTP request.
 </p>
 
 <p>
-Please see our example implementation of the LL API.
+For example to request all specifications do: <br/>
+ <%= h 'GET http://layoutsandlinedrawings.com/?method=specifications_get' %>
 </p>
-
+<p>
+For example to request a specific photo of a specification do: <br/>
+ <%= h 'GET http://layoutsandlinedrawings.com/?method=specification_photo_get&specification_id=X&id=Y' %>
+<br/>
+Where X is the specification's id, and Y is the photo's id.
+</p>
 </div>
