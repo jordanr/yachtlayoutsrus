@@ -18,9 +18,11 @@
 
 .goldstrip {
   border-top: 1px solid black;
+/*
   background: url("/images/goldstrip.jpg");
-  height: 56px;
   background-repeat: repeat;
+*/
+  height: 56px;
 }
 
 /*

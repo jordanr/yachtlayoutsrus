@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
   
   def index
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout=>"application.html.erb" } # index.html.erb
       format.xml do
         case params[:method]
           when 'specifications_get'
@@ -27,6 +27,7 @@ class WelcomeController < ApplicationController
   def search
      spec = params[:specification]
      @specs = Specification.find_by_sql(["SELECT * FROM specifications WHERE manufacturer = ? ORDER BY length DESC", params[:query]])
+     render :layout=>"application.html.erb"
   end
 
   #####################3
