@@ -25,9 +25,16 @@ class WelcomeController < ApplicationController
   end
 
   def search
-     spec = params[:specification]
-     @specs = Specification.find_by_sql(["SELECT * FROM specifications WHERE manufacturer = ? ORDER BY length DESC", params[:query]])
+    if not params[:query] or params[:query] == ''
+      redirect_to root_path
+    else
+     @specs = []
+     tokens = params[:query].split(" ")
+     tokens.each { |query|
+       @specs += Specification.find_by_sql(["SELECT * FROM specifications WHERE LOWER(manufacturer) LIKE ? ORDER BY length DESC", '%'+ query+ '%'])
+     }
      render :layout=>"application.html.erb"
+    end
   end
 
   #####################3
@@ -55,7 +62,19 @@ class WelcomeController < ApplicationController
   # ajax
   #################
   def auto_complete
-    @queries = Specification.find_by_sql(["SELECT DISTINCT manufacturer FROM specifications WHERE LOWER(manufacturer) LIKE ?", '%' + params[:query] + '%'])
+    limit = 10 #how many results do you want?
+    @queries = []
+    count = 0
+    entry = ' ' + params[:query].downcase 
+    # space is word boundary. Downcase necessary?
+    trigrams = (0..entry.length-3).collect {|idx| entry[idx,3]}
+    trigram_groups = Trigram.sum(:score, :conditions => [ "tg IN (?)", trigrams], :group => 'specification_id')
+    trigram_groups.sort_by {|a| -a[1]}.each do |group|
+      @queries << Specification.find(group[0]) #get all the matching people
+      count += 1
+      break if count == limit
+    end
+#    @queries = Specification.find_by_sql(["SELECT DISTINCT manufacturer FROM specifications WHERE LOWER(manufacturer) LIKE ?", '%' + params[:query] + '%'])
     render :partial=>"queries"
   end
 end

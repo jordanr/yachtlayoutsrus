@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tg: 1
+  specification_id: 1
+  tg: MyString
+
+two:
+  tg: 1
+  specification_id: 1
+  tg: MyString

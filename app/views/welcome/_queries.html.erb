@@ -1,5 +1,5 @@
 <ul class="auto_complete">
 <% for query in @queries do -%>
-  <li class="auto_complete"><%=query.manufacturer-%></li>
+  <li class="auto_complete"><%= "#{query.length} #{query.manufacturer} #{query.model} #{query.year}" -%></li>
 <% end -%>
 </ul>

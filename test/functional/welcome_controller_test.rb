@@ -7,9 +7,14 @@ class WelcomeControllerTest < ActionController::TestCase
   end
 
   test "searches" do
-    post :search
+    get :search, :query=>"MyString"
     assert assigns(:specs)
     assert_response :success
+  end
+
+  test "doesnt search nothing" do
+    get :search
+    assert_redirected_to root_path
   end
 end
 
