@@ -8,8 +8,12 @@
 <input id='query' type="text" name="query" size="40" auto_complete="off">
 <div id="query_auto_complete" class="auto_complete" style="display: none;"></div>
 <%= auto_complete_field 'query', :url => auto_complete_path, :method=>:get %>
-<%= submit_tag 'Search' %>
+<%= submit_tag "Search" %> 
 </form>
+
+<p style="color: navy; font-weight: bold; font-size: 18pt">
+Search our inventory of <%= Photo.count %> images.
+</p>
 
 <p>
 <%= link_to "About", about_path %> 
