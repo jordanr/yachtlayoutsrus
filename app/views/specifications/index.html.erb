@@ -11,7 +11,7 @@
 
 <% for specification in @specifications %>
   <tr>
-    <td><%=link_to 'photos', specification_photos_path(specification) %></td>
+    <td><%=link_to "#{specification.photos.count} photos", specification_photos_path(specification) %></td>
     <td><%=h specification.length %></td>
     <td><%=h specification.manufacturer %></td>
     <td><%=h specification.model %></td>
