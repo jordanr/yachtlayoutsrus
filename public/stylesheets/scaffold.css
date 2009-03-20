@@ -1,3 +1,37 @@
+.spec_table {
+  width: 100%;
+}
+
+.spec_table td {
+  width: 50%;
+}
+
+.spec_table label {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.spec_ttl {
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+td.ttl {
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 24px;
+}
+
+td input {
+  width: 30px;
+}
+
+td.wide input {
+  width: 100px;
+}
+
+  
+
 #nav li {
   display: inline;
   list-style-type: none;
@@ -40,20 +74,6 @@ pre {
   font-size: 11px;
 }
 */
-
-td.ttl {
-  margin-top: 10px;
-  padding-top: 10px;
-  font-size: 24px;
-}
-
-td input {
-  width: 30px;
-}
-
-td.wide input {
-  width: 100px;
-}
 
 a { color: #000; }
 a:visited { color: #666; }
