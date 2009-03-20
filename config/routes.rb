@@ -43,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.developers_api 'developers_api', :controller => 'welcome', :action => 'developers_api'
   map.developers_rails 'developers_rails', :controller => 'welcome', :action => 'developers_rails'
   map.developers_schema 'developers_schema', :controller => 'welcome', :action => 'developers_schema'
+  map.developers_example 'developers_example', :controller => 'welcome', :action => 'developers_example'
 
 
   # See how all your routes lay out with "rake routes"

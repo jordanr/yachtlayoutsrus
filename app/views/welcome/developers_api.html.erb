@@ -12,6 +12,10 @@ For the LL API, all requests should go to the server root:
 You should send an HTTP request with the parameter:
   <ul><li> method - the API method</li></ul>
 
+All requests should have the HTTP_ACCEPT header set to 'application/xml'.
+</p>
+
+<p>
 Here are the methods:
 <ul>
 <li>specifications_get() - Return all the specifications</li>
@@ -20,7 +24,7 @@ Here are the methods:
 <li>specification_photo_get(specification_id, photo_id) - Return a specific photo</li>
 </ul>
 
-The plural methods return limited versions (see General Use above).   
+The plural methods return limited versions.  See our <%= link_to 'schema', developers_schema_path %>.
 The specific requests return a complete version of an identified 
 specification or photo.  The arguments "specification_id" and "id" should
 be passed along with the "method" as parameters in the HTTP request.

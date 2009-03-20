@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
 #  skip_before_filter :verify_authenticity_token
 #  protect_from_forgery :only=>:none
 
-  layout 'devels', :only=>[:developers,:developers_api,:developers_schema,:developers_rails]
+  layout 'devels', :only=>[:developers,:developers_api,:developers_schema,:developers_rails, :developers_example]
   
   def index
     respond_to do |format|
@@ -46,6 +46,8 @@ class WelcomeController < ApplicationController
   def developers_schema
   end
   def developers_rails
+  end
+  def developers_example
   end
 
 
