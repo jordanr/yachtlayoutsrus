@@ -1,3 +1,4 @@
+doc/*
 log/*
 tmp/*
 vendor/*
@@ -5,14 +6,3 @@ config/environment.rb
 config/database.yml
 public/photos/*
 app/helpers/my_authentication_helper.rb
-
-example/config/database.yml
-example/log/*
-example/tmp/*
-example/db/*
-
-example_ll/config/database.yml
-example_ll/log/*
-example_ll/tmp/*
-example_ll/db/*
-example_ll/vendor/*
