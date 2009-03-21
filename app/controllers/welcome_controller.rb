@@ -1,4 +1,6 @@
+require 'search_helper'
 class WelcomeController < ApplicationController
+  include SearchHelper
 #  skip_before_filter :verify_authenticity_token
 #  protect_from_forgery :only=>:none
 
@@ -31,10 +33,11 @@ class WelcomeController < ApplicationController
      @specs = []
      
      tokens = params[:query].split(" ")
-     tokens.each { |query|
-#       @specs += Specification.find_by_sql(["SELECT * FROM specifications WHERE LOWER(manufacturer) LIKE ? ORDER BY length, manufacturer DESC", '%'+ query+ '%'])
-       @specs += Photo.find_by_sql(["SELECT photos.* FROM photos, specifications WHERE (LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND photos.specification_id = specifications.id ORDER BY manufacturer, length DESC", "%#{query}%", "%#{query}%", query])
-     }
+     tokens = tokens[0..2]  # ignore more than 3 terms
+     
+# ["SELECT photos.* FROM photos, specifications WHERE ((LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND photos.specification_id = specifications.id 
+# ORDER BY manufacturer, length DESC", "%#{query}%", "%#{query}%", query]) 
+     @specs += Photo.find_by_sql(make_sql(tokens))
      render :layout=>"application.html.erb"
     end
   end

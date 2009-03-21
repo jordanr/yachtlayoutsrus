@@ -32,4 +32,6 @@ class Photo < ActiveRecord::Base
       xml.thumb HOST + public_filename(:thumb)
     end
   end
+
+
 end

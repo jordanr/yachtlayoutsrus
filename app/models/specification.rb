@@ -21,6 +21,4 @@ class Specification < ActiveRecord::Base
       super(options) { |xml| xml.full HOST + main_photo }
     end
   end
-
-
 end
