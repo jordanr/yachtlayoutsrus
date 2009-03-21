@@ -33,7 +33,7 @@ class WelcomeController < ApplicationController
      tokens = params[:query].split(" ")
      tokens.each { |query|
 #       @specs += Specification.find_by_sql(["SELECT * FROM specifications WHERE LOWER(manufacturer) LIKE ? ORDER BY length, manufacturer DESC", '%'+ query+ '%'])
-       @specs += Photo.find_by_sql(["SELECT photos.* FROM photos, specifications WHERE LOWER(manufacturer) LIKE ? and photos.specification_id = specifications.id ORDER BY manufacturer, length DESC", "%#{query}%"])
+       @specs += Photo.find_by_sql(["SELECT photos.* FROM photos, specifications WHERE (LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND photos.specification_id = specifications.id ORDER BY manufacturer, length DESC", "%#{query}%", "%#{query}%", query])
      }
      render :layout=>"application.html.erb"
     end
