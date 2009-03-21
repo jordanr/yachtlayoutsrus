@@ -9,14 +9,19 @@
 <hr/>
 
 <% if @specs.length != 0  %>
+<p>
+ Found <%= @specs.length %> matches
+</p>
 
 <table width="100%">
 <% @specs.each_slice(6) do |sub_specs| -%>
   <tr>
   <% sub_specs.each do |spec| -%>
     <td valign="bottom" width="16%">
-      <%= link_to image_tag(spec.main_photo(:thumb)), specification_path(spec) %><br/>
-      <%= h("#{spec.length} #{spec.manufacturer} #{spec.model} #{spec.year}") %>
+      <% real_spec = Specification.find(spec.specification_id) %>
+<!-- # image_tag(spec.main_photo(:thumb)), specification_path(spec) -->
+      <%= link_to image_tag(spec.public_filename(:thumb)), specification_path(real_spec) %><br/>
+      <%= h("#{real_spec.length} #{real_spec.manufacturer} #{real_spec.model} #{real_spec.year}") %>
     </td>
   <% end -%>
   </tr>

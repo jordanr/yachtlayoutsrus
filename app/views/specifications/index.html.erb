@@ -1,5 +1,11 @@
 <h1>Listing specifications</h1>
 
+<p>
+<%= Specification.count %> specifications <br/>
+<%= Photo.count / 2 %> layouts <br/>
+<%= link_to 'New specification', new_specification_path %>
+</p>
+
 <table>
   <tr>
     <th></th>
@@ -22,7 +28,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New specification', new_specification_path %>

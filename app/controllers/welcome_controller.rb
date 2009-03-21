@@ -29,9 +29,11 @@ class WelcomeController < ApplicationController
       redirect_to root_path
     else
      @specs = []
+     
      tokens = params[:query].split(" ")
      tokens.each { |query|
-       @specs += Specification.find_by_sql(["SELECT * FROM specifications WHERE LOWER(manufacturer) LIKE ? ORDER BY length DESC", '%'+ query+ '%'])
+#       @specs += Specification.find_by_sql(["SELECT * FROM specifications WHERE LOWER(manufacturer) LIKE ? ORDER BY length, manufacturer DESC", '%'+ query+ '%'])
+       @specs += Photo.find_by_sql(["SELECT photos.* FROM photos, specifications WHERE LOWER(manufacturer) LIKE ? and photos.specification_id = specifications.id ORDER BY manufacturer, length DESC", "%#{query}%"])
      }
      render :layout=>"application.html.erb"
     end
