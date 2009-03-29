@@ -21,4 +21,8 @@ class Specification < ActiveRecord::Base
       super(options) { |xml| xml.full HOST + main_photo }
     end
   end
+
+  def to_s
+    "#{length} #{manufacturer} #{model} #{year}"
+  end
 end
