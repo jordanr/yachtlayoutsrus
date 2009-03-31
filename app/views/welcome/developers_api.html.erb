@@ -1,7 +1,9 @@
-<div style="text-align: left">
+<div class ="dev" style="text-align: left">
 
 <p>
 If you want to another language then PHP or Rails, start here.
+</p>
+<p>
 Our XML feed provides layouts and lined drawings through a protocol called the LL API.
 </p>
 
@@ -24,13 +26,17 @@ Here are the methods:
 <li>specification_photos_get(specification_id) - Return all of a spec's photo</li>
 <li>specification_photo_get(specification_id, photo_id) - Return a specific photo</li>
 </ul>
-
-The plural methods return limited versions.  See our <%= link_to 'schema', developers_schema_path %>.
-The specific requests return a complete version of an identified 
-specification or photo.  The arguments "specification_id" and "id" should
-be passed along with the "method" as parameters in the HTTP request.
+<p>
+The plural methods return limited versions.  
+The specific requests return a complete version of an identified specification or photo.  
 </p>
 
+<p>
+The arguments "specification_id" and "id" should be passed along with the "method" as parameters in the HTTP request.
+</p>
+<p>
+See our <%= link_to 'schema', developers_schema_path %> for more information about objects.
+</p>
 <p>
 For example to request all specifications do: <br/>
  <%= h 'GET http://layoutsandlinedrawings.com/?method=specifications_get' %>

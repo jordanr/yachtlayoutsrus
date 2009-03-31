@@ -1,3 +1,9 @@
+.docs {
+  text-align: center; 
+  margin: auto; 
+  width: 1100px;
+}
+
 .spec_table {
   width: 100%;
 }
