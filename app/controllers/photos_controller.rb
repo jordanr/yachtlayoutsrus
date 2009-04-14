@@ -1,6 +1,5 @@
 class PhotosController < ApplicationController
   session :cookie_only => false, :only => :create
-  layout 'admin'
  
   before_filter :authenticate, :except=>[:show, :index, :create]
   before_filter :get_spec
@@ -17,7 +16,7 @@ class PhotosController < ApplicationController
   def show
     @photo = @spec.photos.find(params[:id])
     respond_to do |format|
-      format.html { render :action=>'show', :layout=>'show' }
+      format.html # show..
       format.xml  { render :xml => @photo }
     end
   end

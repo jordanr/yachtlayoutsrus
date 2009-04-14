@@ -1,24 +1,24 @@
 require 'search_helper'
+require 'api_helper'
 class WelcomeController < ApplicationController
-  include SearchHelper
-#  skip_before_filter :verify_authenticity_token
-#  protect_from_forgery :only=>:none
+  include SearchHelper, ApiHelper
 
-  layout 'devels', :only=>[:developers,:developers_api,:developers_schema,:developers_rails, :developers_example]
-  
+  #############
+  # Search Pages
+  ############
   def index
     respond_to do |format|
-      format.html { render :layout=>"application.html.erb" } # index.html.erb
+      format.html { @title = application_url } # index.html.erb
       format.xml do
         case params[:method]
           when 'specifications_get'
-            redirect_to('/specifications.xml')
+	    render :xml => specifications_get 
           when 'specification_get'
-            redirect_to("/specifications/#{params[:id]}.xml")
+	    render :xml => specification_get(params[:id])
           when 'specification_photos_get'
-            redirect_to("/specifications/#{params[:specification_id]}/photos.xml")
+	    render :xml => specifications_photos_get(params[:specification_id])
           when 'specification_photo_get'
-            redirect_to("/specifications/#{params[:specification_id]}/photos/#{params[:id]}.xml")
+	    render :xml => specifications_photo_get(params[:specification_id], params[:id])
           else
             render :status=>500
         end
@@ -30,38 +30,15 @@ class WelcomeController < ApplicationController
     if not params[:query] or params[:query] == ''
       redirect_to root_path
     else
-     @specs = []
-     
+     @title = params[:query]
+
+     # split into words     
      tokens = params[:query].split(" ")
      tokens = tokens[0..2]  # ignore more than 3 terms
-     
-# ["SELECT photos.* FROM photos, specifications WHERE ((LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND photos.specification_id = specifications.id 
-# ORDER BY manufacturer, length DESC", "%#{query}%", "%#{query}%", query]) 
-     @specs += Photo.find_by_sql(make_sql(tokens))
-     render :layout=>"application.html.erb"
+
+     @specs = Photo.find_by_sql(make_sql(tokens))
     end
   end
-
-  #####################3
-  # Docs
-  ####################
-  def about
-    render :layout => 'docs'
-  end
-  def advertising
-    render :layout => 'docs'
-  end
-  def developers
-  end
-  def developers_api
-  end
-  def developers_schema
-  end
-  def developers_rails
-  end
-  def developers_example
-  end
-
 
   ##################
   # ajax
@@ -79,7 +56,6 @@ class WelcomeController < ApplicationController
       count += 1
       break if count == limit
     end
-#    @queries = Specification.find_by_sql(["SELECT DISTINCT manufacturer FROM specifications WHERE LOWER(manufacturer) LIKE ?", '%' + params[:query] + '%'])
     render :partial=>"queries"
   end
 end

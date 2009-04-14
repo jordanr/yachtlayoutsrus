@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'api_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
   test "gets index" do
@@ -16,10 +17,18 @@ class WelcomeControllerTest < ActionController::TestCase
     get :search
     assert_redirected_to root_path
   end
+
+  test "gets adv" do
+    get :advertising
+    assert_response :success
+  end
+  
 end
 
 class XMLWelcomeControllerTest < ActionController::TestCase
   tests WelcomeController
+
+  include ApiHelper
 
   def setup
     super
@@ -28,18 +37,22 @@ class XMLWelcomeControllerTest < ActionController::TestCase
 
   test "gets specs" do
     get :index, :method=>'specifications_get'
-    assert_response :redirect
+    assert_response :success
+    assert_equal @response.body, xml_specs_get
   end
   test "gets spec" do
     get :index, :method=>'specification_get', :id=>1
-    assert_response :redirect
+    assert_response :success
+    assert_equal @response.body, xml_spec_get
   end
   test "gets photos" do
     get :index, :method=>'specification_photos_get', :specification_id=>1
-    assert_response :redirect
+    assert_response :success
+    assert_equal @response.body, xml_photos_get
   end
   test "gets photo" do
     get :index, :method=>'specification_photo_get', :specification_id=>1, :id=>1
-    assert_response :redirect
+    assert_response :success
+    assert_equal @response.body, xml_photo_get
   end
 end

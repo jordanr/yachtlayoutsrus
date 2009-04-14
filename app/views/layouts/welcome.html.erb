@@ -4,22 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>
-  <% if @specification %>
-    <%= @specification.to_s %>
-  <% elsif @photo %>
-    <%= @photo.specification.to_s %>
-  <% else %>
-    Layouts and Line Drawings: Yacht Layouts, Line Drawings, and Specifications
-  <% end %>
-  </title>
+  <title>Yacht Layouts, Line Drawings, and Specifications - <%= h @title %></title>
   <%= stylesheet_link_tag 'scaffold' %>
   <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
-<%= link_to 'Back', :back %>
 
-<p style="color: green"><%= flash[:notice] %></p>
 <%= yield  %>
 
 </body>

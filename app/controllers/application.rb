@@ -4,7 +4,6 @@
 class ApplicationController < ActionController::Base
   include MyAuthenticationHelper, ApplicationHelper
   helper :all # include all helpers, all the time
-  layout 'application'
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

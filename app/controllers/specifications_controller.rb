@@ -1,6 +1,5 @@
 class SpecificationsController < ApplicationController
   before_filter :authenticate, :except=>[:show, :index]
-  layout 'admin'
 
   # GET /specifications
   # GET /specifications.xml
@@ -19,7 +18,7 @@ class SpecificationsController < ApplicationController
     @photos = @specification.photos
 
     respond_to do |format|
-      format.html { render :action=>'show', :layout=>'show' }# show.html.erb
+      format.html # show.html.erb
       format.xml  { render :xml => @specification }
     end
   end
