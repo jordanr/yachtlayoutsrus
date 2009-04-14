@@ -1,3 +1,4 @@
+<div class="left_aligned">
 <p>
 If you're using PHP or Rails, please also see our <%= link_to 'libraries', libraries_path %>.  
 We provide yacht information through a protocol called the LL API.
@@ -5,11 +6,11 @@ We provide yacht information through a protocol called the LL API.
 
 <h3>General</h3>
 <p>
-For the LL API, all requests should:
+All requests should:
   <ul>
     <li>Hit the server root: http://layoutsandlinedrawings.com</li>
     <li>Include the parameter <i>method</i>.  See below for valid methods and arguments.</li>
-    <li>Have the HTTP_ACCEPT header set to 'application/xml'.</li>
+    <li>Have their HTTP_ACCEPT header set to 'application/xml'.</li>
   </ul>
 </p>
 
@@ -17,9 +18,15 @@ For the LL API, all requests should:
 <p>
 The LL API includes four methods:
 <ul>
-<li>SpecificationArray specifications_get(options)- Return all the specifications</li>
-<li>Specification specification_get(id) - Return a specific specification</li>
-<li>PhotoArray specification_photos_get(id) - Return all of a specification's photo</li>
-<li>Photo specification_photo_get(specification_id, id) - Return a specific photo</li>
+<li>
+SpecificationArray specifications_get(options) - Finds specifications matching the passed options.  
+Limits to 20 specifications.  Returns summaries of those specifications.
+</li>
+<li>Specification specification_get(id) - Returns the specific specification referenced by id.</li>
+<li>PhotoArray specification_photos_get(id) - Returns all of a given specification's photos.  
+Returns summaries of those photos.</li>
+<li>Photo specification_photo_get(specification_id, id) - Returns a specific photo of the given specification.</li>
 </ul>
 </p>
+
+</div>

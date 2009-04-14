@@ -9,6 +9,7 @@
 <hr/>
 
 <% if @specs.length != 0  %>
+<span class="centered"><%= will_paginate @specs %></span>
 <p>
  Found <%= @specs.length %> matches
 </p>
@@ -27,6 +28,10 @@
   </tr>
 <% end -%>
 </table>
+
+<p>
+<div class="centered"><%= will_paginate @specs %></div>
+</p>
 
 <div class="goldstrip" style="clear: both; text-align:center; margin: 0 auto;" ><br/>
 <form action=<%=search_path%> method="get">

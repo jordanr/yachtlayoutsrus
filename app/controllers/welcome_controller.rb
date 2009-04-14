@@ -36,7 +36,7 @@ class WelcomeController < ApplicationController
      tokens = params[:query].split(" ")
      tokens = tokens[0..2]  # ignore more than 3 terms
 
-     @specs = Photo.find_by_sql(make_sql(tokens))
+     @specs = Photo.paginate_by_sql(make_sql(tokens), :page=>params[:page], :order=>"manufacturer, length DESC")
     end
   end
 

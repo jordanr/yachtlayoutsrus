@@ -1,6 +1,10 @@
 require 'mime/types'
+require 'will_paginate'
 class Photo < ActiveRecord::Base
   belongs_to :specification
+
+  cattr_accessor :per_page
+  @@per_page = 30
 
   has_attachment :content_type => :image, 
                  :storage => :file_system,

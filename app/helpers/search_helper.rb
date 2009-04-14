@@ -14,8 +14,8 @@ module SearchHelper
         qmarks += ["%#{query}%", "%#{query}%", query]
     end
 
-    sql += "photos.specification_id = specifications.id "
-    sql += "ORDER BY manufacturer, length DESC"
+    sql += "photos.specification_id = specifications.id"
+#    sql += "ORDER BY manufacturer, length DESC"
    
     [sql] + qmarks
   end
