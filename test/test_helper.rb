@@ -49,6 +49,7 @@ class Test::Unit::TestCase
     <length type="integer">1</length>
     <manufacturer>MyString</manufacturer>
     <model>MyString</model>
+    <price type="integer">1</price>
     <year type="integer">1</year>
     <thumb>'+HOST+'/photos/0000/0001/MyString_thumb</thumb>
   </specification>
@@ -57,6 +58,7 @@ class Test::Unit::TestCase
     <length type="integer">1</length>
     <manufacturer>MyString</manufacturer>
     <model>MyString</model>
+    <price type="integer">1</price>
     <year type="integer">1</year>
     <thumb>'+HOST+'/images/main_silhouette.gif</thumb>
   </specification>
@@ -94,6 +96,8 @@ class Test::Unit::TestCase
   <min-draft>1</min-draft>
   <model>MyString</model>
   <number-of-engines type="integer">1</number-of-engines>
+  <price type="integer">1</price>
+  <time-to-sell type="integer">1</time-to-sell>
   <updated-at type="datetime">2009-03-16T20:45:40Z</updated-at>
   <water-tanks nil="true"></water-tanks>
   <year type="integer">1</year>

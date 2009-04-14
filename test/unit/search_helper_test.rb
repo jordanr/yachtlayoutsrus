@@ -20,8 +20,7 @@ class SearchHelperTest < ActiveSupport::TestCase
     assert_equal ["SELECT photos.* FROM photos, specifications WHERE "+
 		  "(LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND "+
 		  "(LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND "+
-                  "photos.specification_id = specifications.id "+
-                  "ORDER BY manufacturer, length DESC", "%a%", "%a%", 'a', "%a%", "%a%", 'a'], sql
+                  "photos.specification_id = specifications.id", "%a%", "%a%", 'a', "%a%", "%a%", 'a'], sql
   end
 end
 

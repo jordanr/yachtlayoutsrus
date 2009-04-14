@@ -1,4 +1,6 @@
+require 'action_view/helpers/number_helper'
 class Specification < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
   has_many :photos, :dependent=>:destroy
 
   validates_numericality_of :length, :year, :engine_year, :number_of_engines, :allow_nil=>true
@@ -15,7 +17,7 @@ class Specification < ActiveRecord::Base
 #  alias_method :ar_to_xml, :to_xml
   def to_xml(options = {})
     if options.delete(:thumb)
-      options.merge!(:only=> [:id, :length, :manufacturer, :model, :year])
+      options.merge!(:only=> [:id, :length, :manufacturer, :model, :year, :price])
       super(options) { |xml| xml.thumb HOST + main_photo(:thumb) }
     else
       super(options) { |xml| xml.full HOST + main_photo }
