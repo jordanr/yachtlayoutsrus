@@ -1,0 +1,26 @@
+<%= javascript_include_tag :defaults %>
+
+<div>
+<%= link_to image_tag('ll_thumb.gif', :alt=>"Layouts and Line Drawings"), root_path %>
+<form method="get" action=<%=search_path%> style="display: inline">
+<input id='query' type="text" name="query" size="30">
+
+<%= submit_tag 'Search' %>
+</form>
+</div>
+<hr/>
+
+<div class="left_aligned">
+
+<p>
+<%= @manufacturers.size %> manufacturers
+</p>
+
+<ul>
+<% for m in @manufacturers %>
+  <li><%=link_to_remote m.manufacturer, :url=>models_path(:manufacturer=>m.manufacturer), :update=>m.manufacturer, :after => "Element.toggle(\'#{m.manufacturer}\')"%>
+      <div id="<%=m.manufacturer%>" style="display: none;"></div>
+  </li>
+<% end %>
+</ul>
+</div>

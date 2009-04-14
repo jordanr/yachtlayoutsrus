@@ -28,6 +28,10 @@ class Specification < ActiveRecord::Base
     "#{length} #{manufacturer} #{model} #{year}"
   end
 
+  def to_s2
+    "#{length} #{model} #{year}"
+  end
+
   def format_price
     price.nil? ? "" : "$#{number_with_delimiter(price)}"
   end

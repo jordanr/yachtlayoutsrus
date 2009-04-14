@@ -4,8 +4,13 @@ ActionController::Routing::Routes.draw do |map|
  
   # welcome
   map.root :controller => "welcome"
+  # actions
   map.search 'search', :controller => 'welcome', :action => 'search'
+  map.browse 'browse', :controller => 'welcome', :action => 'browse'
+  # AJAX
+  map.models 'models', :controller => 'welcome', :action => 'models'
   map.auto_complete 'auto_complete', :controller => 'welcome', :action => 'auto_complete'
+  # Static
   map.about 'about', :controller => 'welcome', :action => 'about'
   map.advertising 'advertising', :controller => 'welcome', :action => 'advertising'
 

@@ -1,0 +1,5 @@
+<ul>
+<% @models.each do |model| %>
+  <li><%= link_to model.to_s2, specification_path(model) %></li>
+<% end %>
+</ul>

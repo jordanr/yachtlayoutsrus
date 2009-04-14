@@ -3,9 +3,9 @@ require 'api_helper'
 class WelcomeController < ApplicationController
   include SearchHelper, ApiHelper
 
-  #############
-  # Search Pages
   ############
+  # Home
+  #########
   def index
     respond_to do |format|
       format.html { @title = application_url } # index.html.erb
@@ -26,6 +26,9 @@ class WelcomeController < ApplicationController
     end
   end
 
+  #############
+  # Pages
+  ############
   def search
     if not params[:query] or params[:query] == ''
       redirect_to root_path
@@ -40,6 +43,9 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def browse
+    @manufacturers = Specification.find_by_sql(["SELECT manufacturer FROM specifications GROUP BY manufacturer ORDER BY manufacturer ASC"])
+  end
   ##################
   # ajax
   #################
@@ -57,5 +63,10 @@ class WelcomeController < ApplicationController
       break if count == limit
     end
     render :partial=>"queries"
+  end
+
+  def models
+    @models = Specification.find_by_sql(["SELECT * FROM specifications WHERE manufacturer=? ORDER BY length DESC", params[:manufacturer]])
+    render :partial=>"models"
   end
 end
