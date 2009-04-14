@@ -1,4 +1,16 @@
-.docs {
+.emphasis {
+ color: navy; 
+ font-weight: bold; 
+ font-size: 18pt;
+}
+
+.left_aligned {
+  text-align: left;
+  width: 1100px;
+  margin: auto; 
+}
+
+.centered {
   text-align: center; 
   margin: auto; 
   width: 1100px;
@@ -28,9 +40,11 @@ td.ttl {
   font-size: 24px;
 }
 
+/*
 td input {
   width: 30px;
 }
+*/
 
 td.wide input {
   width: 100px;
@@ -41,7 +55,7 @@ td.wide input {
 #nav li {
   display: inline;
   list-style-type: none;
-  padding-right: 20px;  
+  padding-right: 5px;  
 }  
 
 .licence {
