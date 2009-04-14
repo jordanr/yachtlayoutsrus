@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(:version => 99990320193036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "price"
+    t.integer  "time_to_sell"
   end
 
   create_table "trigrams", :force => true do |t|

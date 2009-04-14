@@ -5,10 +5,11 @@
 </ul>
 
 <ul>
-  <li>Length: <%=h @specification.length %></li>
+  <li>Length: <%=h @specification.format_length %></li>
   <li>Manufacturer: <%=h @specification.manufacturer %></li>
   <li>Model: <%=h @specification.model %></li>
   <li>Year: <%=h @specification.year %></li>
+  <li>Estimated Price: <%= h @specification.format_price %></li>
 </ul>
 
 <p>

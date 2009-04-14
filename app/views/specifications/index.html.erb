@@ -13,6 +13,7 @@
     <th>Manufacturer</th>
     <th>Model</th>
     <th>Year</th>
+    <th>Price</th>
   </tr>
 
 <% for specification in @specifications %>
@@ -22,6 +23,7 @@
     <td><%=h specification.manufacturer %></td>
     <td><%=h specification.model %></td>
     <td><%=h specification.year %></td>
+    <td><%=h specification.price %></td>
     <td><%= link_to 'Show', specification %></td>
     <td><%= link_to 'Edit', edit_specification_path(specification) %></td>
     <td><%= link_to 'Destroy', specification, :confirm => 'Are you sure?', :method => :delete %></td>
