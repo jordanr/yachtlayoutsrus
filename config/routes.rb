@@ -11,9 +11,9 @@ ActionController::Routing::Routes.draw do |map|
 
 
   # developers
-  map.developers 'developers', :controller => 'developers', :action => 'developers'
-  map.documentation 'documentation', :controller => 'developers', :action => 'documentation'
-  map.libraries 'libraries', :controller => 'developers', :action => 'libraries'
-  map.examples 'examples', :controller => 'developers', :action => 'examples'
+  map.developers 'developers', :controller => 'developers', :action => 'index'
+  map.documentation 'developers/documentation', :controller => 'developers', :action => 'documentation'
+  map.libraries 'developers/libraries', :controller => 'developers', :action => 'libraries'
+  map.examples 'developers/examples', :controller => 'developers', :action => 'examples'
 
 end

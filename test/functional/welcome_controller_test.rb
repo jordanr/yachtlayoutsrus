@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'api_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
   test "gets index" do
@@ -27,8 +26,6 @@ end
 
 class XMLWelcomeControllerTest < ActionController::TestCase
   tests WelcomeController
-
-  include ApiHelper
 
   def setup
     super

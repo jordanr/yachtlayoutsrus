@@ -1,50 +1,25 @@
-<div class ="dev" style="text-align: left">
-
 <p>
-If you want to another language then PHP or Rails, start here.
-</p>
-<p>
-Our XML feed provides layouts and lined drawings through a protocol called the LL API.
+If you're using PHP or Rails, please also see our <%= link_to 'libraries', libraries_path %>.  
+We provide yacht information through a protocol called the LL API.
 </p>
 
-<h3> LL API </h3>
+<h3>General</h3>
 <p>
-For the LL API, all requests should go to the server root:
-  <ul><li> http://layoutsandlinedrawings.com</li></ul>
-  
-You should send an HTTP request with the parameter:
-  <ul><li> method - the API method</li></ul>
-
-All requests should have the HTTP_ACCEPT header set to 'application/xml'.
+For the LL API, all requests should:
+  <ul>
+    <li>Hit the server root: http://layoutsandlinedrawings.com</li>
+    <li>Include the parameter <i>method</i>.  See below for valid methods and arguments.</li>
+    <li>Have the HTTP_ACCEPT header set to 'application/xml'.</li>
+  </ul>
 </p>
 
+<h3>Methods</h3>
 <p>
-Here are the methods:
+The LL API includes four methods:
 <ul>
-<li>specifications_get() - Return all the specifications</li>
-<li>specification_get(specification_id) - Return a specific specification</li>
-<li>specification_photos_get(specification_id) - Return all of a spec's photo</li>
-<li>specification_photo_get(specification_id, photo_id) - Return a specific photo</li>
+<li>SpecificationArray specifications_get(options)- Return all the specifications</li>
+<li>Specification specification_get(id) - Return a specific specification</li>
+<li>PhotoArray specification_photos_get(id) - Return all of a specification's photo</li>
+<li>Photo specification_photo_get(specification_id, id) - Return a specific photo</li>
 </ul>
-<p>
-The plural methods return limited versions.  
-The specific requests return a complete version of an identified specification or photo.  
 </p>
-
-<p>
-The arguments "specification_id" and "id" should be passed along with the "method" as parameters in the HTTP request.
-</p>
-<p>
-See our <%= link_to 'schema', developers_schema_path %> for more information about objects.
-</p>
-<p>
-For example to request all specifications do: <br/>
- <%= h 'GET http://layoutsandlinedrawings.com/?method=specifications_get' %>
-</p>
-<p>
-For example to request a specific photo of a specification do: <br/>
- <%= h 'GET http://layoutsandlinedrawings.com/?method=specification_photo_get&specification_id=X&id=Y' %>
-<br/>
-Where X is the specification's id, and Y is the photo's id.
-</p>
-</div>

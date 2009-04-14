@@ -16,9 +16,9 @@ class WelcomeController < ApplicationController
           when 'specification_get'
 	    render :xml => specification_get(params[:id])
           when 'specification_photos_get'
-	    render :xml => specifications_photos_get(params[:specification_id])
+	    render :xml => specification_photos_get(params[:specification_id])
           when 'specification_photo_get'
-	    render :xml => specifications_photo_get(params[:specification_id], params[:id])
+	    render :xml => specification_photo_get(params[:specification_id], params[:id])
           else
             render :status=>500
         end
