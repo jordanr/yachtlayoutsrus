@@ -36,7 +36,7 @@ class Specification < ActiveRecord::Base
     "#{length} #{manufacturer} #{model} #{year} #{format_price}"
   end
 
-  def to_s3
+  def to_s4
     "#{length} #{model} #{year} #{format_price}"
   end
 
