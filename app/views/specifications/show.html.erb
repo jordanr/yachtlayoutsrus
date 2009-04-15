@@ -1,72 +1,32 @@
+<div class="centered">
+
+<b> <%= @specification.to_s3 %></b>
+
 <ul>
 <% @photos.each do |photo| %>
 <li style="display: inline"><%= link_to image_tag(photo.public_filename(:thumb)), photo.public_filename %></li>
 <% end %>
 </ul>
 
+</div>
+
+<div class="left_aligned">
+<%= @specification.description %>
+</div>
+
+<div class="centered">
+<br/>
+<div style="float:left; width: 500px; text-align: left;">
 <ul>
-  <li>Length: <%=h @specification.format_length %></li>
-  <li>Manufacturer: <%=h @specification.manufacturer %></li>
-  <li>Model: <%=h @specification.model %></li>
-  <li>Year: <%=h @specification.year %></li>
-  <li>Estimated Price: <%= h @specification.format_price %></li>
+<% @specification.spec_names.each do |spec| -%>
+  <% if @specification.send(spec.to_sym).to_s != "" -%>
+    <li><%= spec.humanize %>: <%=h @specification.send(spec.to_sym) %></li>
+  <% end -%>
+<% end -%>
 </ul>
+</div>
 
-<p>
-<label class='spec_label'>Description:</label><br/>
-<%=h @specification.description %>
-</p>
-
-<table class="spec_table">
-<tr class='spec_ttl'><td>Hull</td></tr>
-<tr>
-  <td><label class='spec_label'>Material:</label><%=h @specification.hull_material %></td>
-  <td><label class='spec_label'>Designer:</label><%=h @specification.designer %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Lwl:</label><%=h @specification.lwl %></td>
-  <td><label class='spec_label'>Loa:</label><%=h @specification.loa %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Lod:</label><%=h @specification.lod %></td>
-  <td><label class='spec_label'>Beam:</label><%=h @specification.beam %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Bridge clearance:</label><%=h @specification.bridge_clearance %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Min draft:</label><%=h @specification.min_draft %></td>
-  <td><label class='spec_label'>Max draft:</label><%=h @specification.max_draft %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Displacement:</label><%=h @specification.displacement %></td>
-  <td><label class='spec_label'>Ballast:</label><%=h @specification.ballast %></td>
-</tr>
-
-<tr class="spec_ttl"><td>Tanks </td></tr>
-<tr>
-  <td><label class='spec_label'>Fuel tanks:</label><%=h @specification.fuel_tanks %></td>
-  <td><label class='spec_label'>Water tanks:</label><%=h @specification.water_tanks %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Holding tanks:</label><%=h @specification.holding_tanks %></td>
-</tr>
-
-<tr class="spec_ttl"><td>Engines</td></tr>
-<tr>
-  <td><label class='spec_label'>Manufacturer:</label><%=h @specification.engine_manufacturer %></td>
-  <td><label class='spec_label'>Model:</label><%=h @specification.engine_model %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Fuel:</label><%=h @specification.engine_fuel %></td>
-  <td><label class='spec_label'>Horsepower:</label><%=h @specification.engine_horsepower %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Year:</label><%=h @specification.engine_year %></td>
-  <td><label class='spec_label'>Number of engines:</label><%=h @specification.number_of_engines %></td>
-</tr>
-<tr>
-  <td><label class='spec_label'>Cruise speed:</label><%=h @specification.cruise_speed %></td>
-  <td><label class='spec_label'>Max speed:</label><%=h @specification.max_speed %></td>
-</tr>
-</table>
+<div style="float: right; width: 500px;">
+<%= image_tag(@photos.rand.public_filename) if @photos.size > 0 %>
+</div>
+</div>

@@ -32,12 +32,29 @@ class Specification < ActiveRecord::Base
     "#{length} #{model} #{year}"
   end
 
+  def to_s3
+    "#{length} #{manufacturer} #{model} #{year} #{format_price}"
+  end
+
+  def to_s3
+    "#{length} #{model} #{year} #{format_price}"
+  end
+
   def format_price
     price.nil? ? "" : "$#{number_with_delimiter(price)}"
   end
 
   def format_length
     length.nil? ? "" : "#{length}\'"
+  end
+
+  def spec_names
+    %w{ hull_material designer
+	loa lod lwl beam min_draft max_draft bridge_clearance 
+	displacement ballast cruise_speed max_speed 
+	fuel_tanks water_tanks holding_tanks 
+ 	engine_manufacturer engine_model engine_fuel engine_horsepower
+	engine_year number_of_engines }
   end
 
 end
