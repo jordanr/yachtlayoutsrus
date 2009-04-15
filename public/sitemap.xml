@@ -13,16 +13,13 @@
       <loc>http://layoutsandlinedrawings.com/developers/</loc>
    </url>
    <url>
-      <loc>http://layoutsandlinedrawings.com/developers_example/</loc>
+      <loc>http://layoutsandlinedrawings.com/developers/examples/</loc>
    </url>
    <url>
-      <loc>http://layoutsandlinedrawings.com/developers_schema/</loc>
+      <loc>http://layoutsandlinedrawings.com/developers/documentation/</loc>
    </url>
    <url>
-      <loc>http://layoutsandlinedrawings.com/developers_api/</loc>
-   </url>
-   <url>
-      <loc>http://layoutsandlinedrawings.com/developers_rails/</loc>
+      <loc>http://layoutsandlinedrawings.com/developers/libraries/</loc>
    </url>
    <url>
       <loc>http://layoutsandlinedrawings.com/search?query=a&amp;commit=Search</loc>
@@ -38,5 +35,11 @@
    </url>
    <url>
       <loc>http://layoutsandlinedrawings.com/search?query=u&amp;commit=Search</loc>
+   </url>
+   <url>
+      <loc>http://layoutsandlinedrawings.com/browse</loc>
+   </url>
+   <url>
+      <loc>http://layoutsandlinedrawings.com/advanced</loc>
    </url>
 </urlset>
