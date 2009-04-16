@@ -41,7 +41,7 @@ class Specification < ActiveRecord::Base
   end
 
   def to_s5
-    "#{format_price} in #{time_to_sell}"
+    [format_price, time_to_sell].join(", ")
   end
 
   def format_price
