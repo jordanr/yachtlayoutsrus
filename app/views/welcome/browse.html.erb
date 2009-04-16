@@ -18,8 +18,8 @@
 </div>
 
 <div class="left_aligned">
-<% @manufacturers.each_slice(@manufacturers.length/3) do |ms| %>
-<ul style="float: left; width: 350px">
+<% @manufacturers.each_slice((@manufacturers.length * 1.0/2.0).ceil) do |ms| %>
+<ul style="float: left; width: 500px">
 <% for m in ms %>
   <li><%=link_to_remote m.manufacturer, :url=>models_path(:manufacturer=>m.manufacturer), :update=>m.manufacturer, :after => "Element.toggle(\'#{m.manufacturer}\')"%>
       <div id="<%=m.manufacturer%>" style="display: none;"></div>
