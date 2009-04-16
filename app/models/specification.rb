@@ -40,6 +40,10 @@ class Specification < ActiveRecord::Base
     "#{length} #{model} #{year} #{format_price}"
   end
 
+  def to_s5
+    "#{format_price} in #{time_to_sell}"
+  end
+
   def format_price
     price.nil? ? "" : "$#{number_with_delimiter(price)}"
   end

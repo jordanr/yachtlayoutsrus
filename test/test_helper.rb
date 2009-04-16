@@ -97,7 +97,7 @@ class Test::Unit::TestCase
   <model>MyString</model>
   <number-of-engines type="integer">1</number-of-engines>
   <price type="integer">1</price>
-  <time-to-sell type="integer">1</time-to-sell>
+  <time-to-sell>1</time-to-sell>
   <updated-at type="datetime">2009-03-16T20:45:40Z</updated-at>
   <water-tanks nil="true"></water-tanks>
   <year type="integer">1</year>

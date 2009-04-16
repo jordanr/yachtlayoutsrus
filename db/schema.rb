@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 99990320193036) do
     t.datetime "updated_at"
     t.text     "description"
     t.integer  "price"
-    t.integer  "time_to_sell"
+    t.string   "time_to_sell"
   end
 
   create_table "trigrams", :force => true do |t|

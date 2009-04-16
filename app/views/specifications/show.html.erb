@@ -1,6 +1,7 @@
 <div class="centered">
 
-<b> <%= @specification.to_s3 %></b>
+<b> <%= @specification.to_s %></b>
+<br/> <%= @specification.to_s5 %>
 
 <ul>
 <% @photos.each do |photo| %>
@@ -16,7 +17,7 @@
 
 <div class="centered">
 <br/>
-<div style="float:left; width: 500px; text-align: left;">
+<div style="float:left; width: 200px; text-align: left;">
 <ul>
 <% @specification.spec_names.each do |spec| -%>
   <% if @specification.send(spec.to_sym).to_s != "" -%>
