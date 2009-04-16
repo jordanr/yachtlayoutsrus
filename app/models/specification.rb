@@ -41,7 +41,11 @@ class Specification < ActiveRecord::Base
   end
 
   def to_s5
-    [format_price, time_to_sell].join(", ")
+    delim = ""
+    if format_price != "" and time_to_sell.to_s != ""
+      delim = ", "
+    end
+    "#{format_price}#{delim}#{time_to_sell}"
   end
 
   def format_price
