@@ -43,7 +43,7 @@ class Specification < ActiveRecord::Base
   def to_s5
     delim = ""
     if format_price != "" and time_to_sell.to_s != ""
-      delim = ", "
+      delim = " - sells in "
     end
     "#{format_price}#{delim}#{time_to_sell}"
   end
