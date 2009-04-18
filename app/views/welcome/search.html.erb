@@ -11,7 +11,7 @@
 <% if @specs.length != 0  %>
 <span class="centered"><%= will_paginate @specs %></span>
 <p>
- Found <%= @specs.length %> matches
+ Found <%= @count %> matches
 </p>
 
 <table width="100%">
@@ -50,8 +50,8 @@ Your search <%= h params[:query] %> did not match any specifications in our data
 Try:
 <ul>
 <li>Checking your spelling</li>
-<li>Fewer terms</li>
-<li>More general terms</li>
+<li>Putting in just the manufacturer</li>
+<li>Leaving out the year or length</li>
 </ul>
 </p>
 <% end %>

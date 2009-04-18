@@ -7,7 +7,8 @@ module SearchHelper
   def make_sql(terms)
     raise ArgumentError if terms.size == 0 or terms.size > 3
  
-    sql = "SELECT photos.* FROM photos, specifications WHERE "
+#    sql = "SELECT photos.* FROM photos, specifications WHERE "
+    sql = ""
     qmarks = []
     terms.each do |query|
         sql += "(LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND "

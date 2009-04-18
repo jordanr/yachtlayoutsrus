@@ -39,7 +39,16 @@ class WelcomeController < ApplicationController
      tokens = params[:query].split(" ")
      tokens = tokens[0..2]  # ignore more than 3 terms
 
-     @specs = Photo.paginate_by_sql(make_sql(tokens), :page=>params[:page], :order=>"manufacturer, length DESC")
+     sqler = make_sql(tokens)
+     sql = sqler.first
+ 
+     # count total
+     sqler[0] = "SELECT COUNT(*) FROM photos, specifications WHERE " + sql
+     @count = Photo.count_by_sql(sqler)
+
+     # limit to first page
+     sqler[0] = "SELECT photos.* FROM photos, specifications WHERE " + sql
+     @specs = Photo.paginate_by_sql(sqler, :page=>params[:page], :order=>"manufacturer, length DESC")
     end
   end
 

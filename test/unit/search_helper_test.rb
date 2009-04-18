@@ -17,8 +17,8 @@ class SearchHelperTest < ActiveSupport::TestCase
 
   test "two" do
     sql = make_sql(['a','a'])
-    assert_equal ["SELECT photos.* FROM photos, specifications WHERE "+
-		  "(LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND "+
+#    assert_equal ["SELECT photos.* FROM photos, specifications WHERE "+
+    assert_equal ["(LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND "+
 		  "(LOWER(manufacturer) LIKE ? OR LOWER(model) LIKE ? OR length = ?) AND "+
                   "photos.specification_id = specifications.id", "%a%", "%a%", 'a', "%a%", "%a%", 'a'], sql
   end
