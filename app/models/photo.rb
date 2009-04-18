@@ -37,5 +37,7 @@ class Photo < ActiveRecord::Base
     end
   end
 
-
+  def to_s
+    "#{specification.to_s} layout/line drawing"
+  end
 end
