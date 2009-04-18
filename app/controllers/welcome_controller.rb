@@ -48,7 +48,7 @@ class WelcomeController < ApplicationController
 
      # limit to first page
      sqler[0] = "SELECT photos.* FROM photos, specifications WHERE " + sql
-     @specs = Photo.paginate_by_sql(sqler, :page=>params[:page], :order=>"manufacturer, length DESC")
+     @specs = Photo.paginate_by_sql(sqler, :page=>params[:page])
     end
   end
 
