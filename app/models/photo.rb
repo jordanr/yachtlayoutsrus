@@ -38,6 +38,6 @@ class Photo < ActiveRecord::Base
   end
 
   def to_s
-    "#{specification.to_s} layout/line drawing"
+    "#{specification.to_s}: #{File.basename(filename, ".jpg").humanize}"
   end
 end

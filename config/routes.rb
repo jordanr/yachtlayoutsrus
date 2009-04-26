@@ -7,6 +7,8 @@ ActionController::Routing::Routes.draw do |map|
   # actions
   map.search 'search', :controller => 'welcome', :action => 'search'
   map.browse 'browse', :controller => 'welcome', :action => 'browse'
+  map.advanced 'advanced', :controller => 'welcome', :action => 'search'
+
   # AJAX
   map.models 'models', :controller => 'welcome', :action => 'models'
   map.auto_complete 'auto_complete', :controller => 'welcome', :action => 'auto_complete'
